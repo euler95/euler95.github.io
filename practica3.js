@@ -339,7 +339,7 @@ var game = function() {
 	function init(){
 		Q.clearStages();
 		document.removeEventListener("keyup", listener);
-		document.body.removeEventListener("touchstart",listener);
+		document.body.removeEventListener("touchstart",init);
 		currentLevel = 1;
 		lost = false;
 		Q.state.set({coins: 0, lives: 3});
