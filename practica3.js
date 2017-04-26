@@ -303,13 +303,15 @@ var game = function() {
 			}
 		}
 		var button2 = box.insert(new Q.UI.Button({ x: 0, y: 60, fill: "#CCCCCC",
-											   label: "Main menu" }));        
+											   label: "Main menu" }));  
+												
 		var label = box.insert(new Q.UI.Text({cx:button2.width/2, y: -10 - button2.p.h, 
 											label: stage.options.label }));
 		button2.on("click",function() {
 			Q.clearStages();
 			Q.state.set({coins: 0, lives: 3});
 			Q.stageScene('mainTitle');
+			
 		});
 		box.fit(20);
 	});
@@ -320,6 +322,7 @@ var game = function() {
 	});
 
 	Q.scene('mainTitle', function(stage) {
+		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(0,0,0,1)"
 		}));
@@ -328,18 +331,25 @@ var game = function() {
 		
 		button.on("click", init);
 		document.addEventListener("keyup", listener);
-		document.body.addEventListener("touchstart", init);
+		document.body.addEventListener("touchstart", touch);
 		
 	});
+	
+	var toch=function(){
+		if(inMenu){
+			init();
+			inMenu=false;
+		}
+	}
 	
 	var listener = function (evt) {
 		if(evt.which==13) init();
 	};
 	
 	function init(){
+		
 		Q.clearStages();
 		document.removeEventListener("keyup", listener);
-		document.body.removeEventListener("touchstart",init);
 		currentLevel = 1;
 		lost = false;
 		Q.state.set({coins: 0, lives: 3});
