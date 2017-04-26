@@ -335,7 +335,7 @@ var game = function() {
 		
 	});
 	
-	var toch=function(){
+	var touch=function(){
 		if(inMenu){
 			init();
 			inMenu=false;
