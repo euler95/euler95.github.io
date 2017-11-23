@@ -355,7 +355,9 @@ var game = function() {
 	Q.scene('level1', function(stage) {
 		Q.stageTMX("wynot.tmx", stage);
 		var mario = stage.insert(new Q.Mario());
-		setInterval(function(){stage.insert(new Q.Goomba({y:8000,x:1300,vx:-50}));},3000);
+		setInterval(function(){stage.insert(new Q.Goomba({y:400,x:8000,vx:-50}));},3000);
+		setInterval(function(){stage.insert(new Q.Goomba({y:400,x:4000,vx:-50}));},3000);
+		setInterval(function(){stage.insert(new Q.Goomba({y:400,x:2000,vx:-50}));},3000);
 		var peach = stage.insert(new Q.Peach());
 		stage.add("viewport").follow(mario, {x:true, y:false});
 	});
