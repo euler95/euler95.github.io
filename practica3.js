@@ -54,16 +54,6 @@ var game = function() {
 					this.play("run_right");
 				}else if (this.p.vy != 0){
 					this.play("jump_right");
-				}else {
-					this.play("stand_right");
-				}
-			}else{
-				if(this.p.vx != 0 && this.p.vy == 0){
-					this.play("run_left");
-				}else if (this.p.vy != 0){
-					this.play("jump_left");
-				}else {
-					this.play("stand_left");
 				}
 			}
 		}
