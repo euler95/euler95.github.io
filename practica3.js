@@ -54,6 +54,8 @@ var game = function() {
 					this.play("run_right");
 				}else if (this.p.vy != 0){
 					this.play("jump_right");
+				}else {
+					this.play("stand_right");
 				}
 			}
 		}
@@ -109,6 +111,7 @@ var game = function() {
 	  win: function(collision){
 		if(collision.obj.isA("Mario")){
 			collision.obj.del('platformerControls');
+			collision.obj.p.vx=0;
 			levelwin = true;
 			Q.stageScene("endGame", 1, {label: "You win this time..."});
 		}
