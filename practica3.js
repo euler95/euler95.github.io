@@ -37,6 +37,7 @@ var game = function() {
 			sheet: "marioR",
 			x: 150,
 			y: 280,
+			vx:200,
 			jumpSpeed: -500,
 			dead: false
 		});
