@@ -4,7 +4,7 @@
   <image source="../images/tiles.png" width="256" height="256"/>
  </tileset>
  <imagelayer name="Capa de Imagen 1">
-  <image source="../assets/images/backgrounds/Blanco.png" width="1502" height="1082"/>
+  <image source="../images/Blanco.png" width="1502" height="1082"/>
  </imagelayer>
  <layer name="Collision" width="500" height="18" offsetx="2" offsety="0">
   <properties>
