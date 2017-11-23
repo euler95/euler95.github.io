@@ -3,10 +3,7 @@
  <tileset firstgid="1" name="tiles" tilewidth="34" tileheight="34" tilecount="49" columns="7">
   <image source="../images/tiles.png" width="256" height="256"/>
  </tileset>
- <imagelayer name="Capa de Imagen 1">
-  <image source="../assets/blanco.jpg" width="709" height="709"/>
- </imagelayer>
- <layer name="Collision" width="500" height="18">
+ <layer name="Collision" width="500" height="18" offsetx="2" offsety="0">
   <properties>
    <property name="collision" value="true"/>
   </properties>
