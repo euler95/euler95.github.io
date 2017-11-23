@@ -356,15 +356,8 @@ var game = function() {
 		Q.stageTMX("wynot.tmx", stage);
 		var mario = stage.insert(new Q.Mario());
 		stage.insert(new Q.Bloopa());
-		setInterval(function(){stage.insert(new Q.Bloopa());},4000);
+		setInterval(function(){stage.insert(new Q.Goomba({y:400,x:1300}));},3000);
 		var peach = stage.insert(new Q.Peach());
-		var coin = stage.insert(new Q.Coin({x:300, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:350, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:450, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:650, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:700, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:1200, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:1250, y:400}));
 		stage.add("viewport").follow(mario, {x:true, y:false});
 	});
 	// ## Level2 scene
