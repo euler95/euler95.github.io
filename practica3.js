@@ -270,7 +270,7 @@ var game = function() {
 	
 	
 
-	Q.loadTMX("level1.tmx, sprites.json, level2.tmx", function() {
+	Q.loadTMX("level1.tmx, sprites.json, level2.tmx, wynot.tmx", function() {
 		Q.stageScene("mainTitle");
 	});
 	
@@ -360,7 +360,7 @@ var game = function() {
 	// ## Level1 scene
 		// Create a new scene called level 1
 	Q.scene('level1', function(stage) {
-		Q.stageTMX("level1.tmx", stage);
+		Q.stageTMX("wynot.tmx", stage);
 		var mario = stage.insert(new Q.Mario());
 		stage.insert(new Q.Bloopa());
 		setInterval(function(){stage.insert(new Q.Bloopa());},4000);
