@@ -270,7 +270,7 @@ var game = function() {
 	
 	
 
-	Q.loadTMX("level1.tmx, sprites.json, level2.tmx, wynot.tmx", function() {
+	Q.loadTMX("level1.tmx, sprites.json, level2.tmx", function() {
 		Q.stageScene("mainTitle");
 	});
 	
