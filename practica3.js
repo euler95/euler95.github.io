@@ -134,7 +134,7 @@ var game = function() {
 		extend: {
 			stomp: function(collision) {
 				if(collision.obj.isA("Mario")) {
-					this.play("die", 1);
+					//this.play("die", 1);
 					this.p.vx=0;
 					this.p.vy=0;
 					this.off("bump.bottom");
