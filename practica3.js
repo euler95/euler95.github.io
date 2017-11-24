@@ -17,7 +17,7 @@ var game = function() {
 	
 	
 	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
-			"negro.png", "nigga.json", "wynot.mp3",
+			"negro.png", "nigga.json",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", 
 					"coin.png", "coin.json", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("mario_small.png","mario_small.json");
@@ -25,7 +25,7 @@ var game = function() {
 		Q.compileSheets("goomba.png","goomba.json");
 		Q.compileSheets("coin.png", "coin.json");
 		Q.compileSheets("negro.png", "nigga.json");
-		Q.audio.play("wynot.mp3",{ loop: true });
+		Q.audio.play("music_main.mp3",{ loop: true });
 	});
 	
 	//------------MARIO
