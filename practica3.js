@@ -17,12 +17,14 @@ var game = function() {
 	
 	
 	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
+			"nigga.png", "nigga.json",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", 
 					"coin.png", "coin.json", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("mario_small.png","mario_small.json");
 		Q.compileSheets("bloopa.png","bloopa.json");
 		Q.compileSheets("goomba.png","goomba.json");
 		Q.compileSheets("coin.png", "coin.json");
+		Q.compileSheets("nigga.png", "nigga.json");
 		Q.audio.play("music_main.mp3",{ loop: true });
 	});
 	
@@ -198,8 +200,8 @@ var game = function() {
 		init: function(p) {
 			// Listen for hit event and call the collision method
 			this._super(p, {
-				sprite: 'goomba anim',
-				sheet: "goomba",
+				sprite: 'nigga anim',
+				sheet: "niggaWalk",
 				vx: 150,
 				x: 250,
 				y: 500
@@ -217,9 +219,8 @@ var game = function() {
 		}
 	});
 	
-	Q.animations('goomba anim', {
-		walk: { frames: [0, 1], rate: 1/4},
-		die: { frames: [2/*, 3*/], rate: 1/1}
+	Q.animations('nigga anim', {
+		walk: { frames: [0, 1], rate: 1/4}
 	});
 		
 	//------------COIN
