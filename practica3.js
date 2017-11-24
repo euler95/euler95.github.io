@@ -17,14 +17,14 @@ var game = function() {
 	
 	
 	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
-			"negro.png", "nigga.json",
+			"nigga.png", "nigga.json",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", 
 					"coin.png", "coin.json", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("mario_small.png","mario_small.json");
 		Q.compileSheets("bloopa.png","bloopa.json");
 		Q.compileSheets("goomba.png","goomba.json");
 		Q.compileSheets("coin.png", "coin.json");
-		Q.compileSheets("negro.png", "nigga.json");
+		Q.compileSheets("nigga.png", "nigga.json");
 		Q.audio.play("music_main.mp3",{ loop: true });
 	});
 	
