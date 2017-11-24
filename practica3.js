@@ -16,7 +16,7 @@ var game = function() {
 	Q.state.on("change.coins, change.lives", function(){Q.stageScene("HUD", 1, {label: "Lives: "+Q.state.get("lives")+"	Coins: "+Q.state.get("coins")});});
 	
 	
-	Q.load(["mario_small.png","mario_small.json","bloopa.png", "pantallaInicio.png",
+	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
 			"negro.png", "nigga.json",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", 
 					"coin.png", "coin.json", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
@@ -321,7 +321,7 @@ var game = function() {
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(0,0,0,1)"
 		}));
 		
-		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "pantallaInicio.png" })); 
+		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "mainTitle.png" })); 
 		
 		button.on("click", init);
 		document.addEventListener("keyup", listener);
