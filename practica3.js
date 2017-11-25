@@ -17,7 +17,7 @@ var game = function() {
 	
 	
 	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
-			"nigga.png", "nigga.json","white.png","white.json",
+			"nigga.png", "nigga.json","white.png","white.json","pardillos.png","pardillos.json",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", 
 					"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("mario_small.png","mario_small.json");
@@ -25,6 +25,7 @@ var game = function() {
 		Q.compileSheets("goomba.png","goomba.json");
 		Q.compileSheets("coin.png", "coin.json");
 		Q.compileSheets("nigga.png", "nigga.json");
+		Q.compileSheets("pardillos.png", "pardillos.json");
 		Q.compileSheets("white.png", "white.json");
 		Q.audio.play("wynot.mp3",{ loop: true });
 	});
@@ -253,7 +254,38 @@ var game = function() {
 	Q.animations('white anim', {
 		walk: { frames: [0, 1], rate: 1/4}
 	});
-		
+	
+	//------------Pardillos
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Pardillos",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p, {
+				sprite: 'pardillos anim',
+				sheet: "pardillosStay",
+				vx: 150,
+				x: 250,
+				y: 500
+			});
+			this.add('2d, animation, aiBounce, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+
+		step: function(dt) {
+		// Tell the stage to run collisions on this sprite
+			this.play("stay");
+			if(this.p.y > 600){
+				this.destroy();
+			}
+		}
+	});
+	
+	Q.animations('pardillos anim', {
+		stay: { frames: [0, 1, 2, 3], rate: 1/4}
+	});
+	
+	
 	//------------COIN
 	//-----------------------------------------------------
 	//-----------------------------------------------------
@@ -389,6 +421,7 @@ var game = function() {
 		var mario = stage.insert(new Q.Mario());
 		stage.insert(new Q.Blanco({y:400,x:2000,vx:-50}));
 		stage.insert(new Q.Negro({y:400,x:4000,vx:-50}));
+		stage.insert(new Q.Negro({y:400,x:5000,vx:0}));
 		var peach = stage.insert(new Q.Peach());
 		stage.add("viewport").follow(mario, {x:true, y:false});
 	});
