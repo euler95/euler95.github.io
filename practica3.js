@@ -19,7 +19,7 @@ var game = function() {
 	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
 			"nigga.png", "nigga.json",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", 
-					"coin.png", "coin.json", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
+					"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("mario_small.png","mario_small.json");
 		Q.compileSheets("bloopa.png","bloopa.json");
 		Q.compileSheets("goomba.png","goomba.json");
@@ -66,7 +66,7 @@ var game = function() {
 	  death: function(){
 		if(!levelwin && !this.p.dead)
 			Q.audio.stop("");
-			Q.audio.play("music_die.mp3");
+			Q.audio.play("wynot.mp3");
 			this.del('platformerControls');
 			this.p.vx = 0;
 			this.p.vy = -400;
