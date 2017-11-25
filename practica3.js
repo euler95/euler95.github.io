@@ -17,7 +17,7 @@ var game = function() {
 	
 	
 	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
-			"nigga.png", "nigga.json",
+			"nigga.png", "nigga.json","white.png","white.json",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", 
 					"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("mario_small.png","mario_small.json");
@@ -25,6 +25,7 @@ var game = function() {
 		Q.compileSheets("goomba.png","goomba.json");
 		Q.compileSheets("coin.png", "coin.json");
 		Q.compileSheets("nigga.png", "nigga.json");
+		Q.compileSheets("white.png", "white.json");
 		Q.audio.play("wynot.mp3",{ loop: true });
 	});
 	
@@ -193,10 +194,10 @@ var game = function() {
 	});
 
 	
-	//------------GOOMBA
+	//------------Negro
 	//-----------------------------------------------------
 	//-----------------------------------------------------
-	Q.Sprite.extend("Goomba",{
+	Q.Sprite.extend("Negro",{
 		init: function(p) {
 			// Listen for hit event and call the collision method
 			this._super(p, {
@@ -220,6 +221,37 @@ var game = function() {
 	});
 	
 	Q.animations('nigga anim', {
+		walk: { frames: [0, 1], rate: 1/4}
+	});
+	
+	
+	//------------Blanco
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Blanco",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p, {
+				sprite: 'white anim',
+				sheet: "whiteWalk",
+				vx: 150,
+				x: 250,
+				y: 500
+			});
+			this.add('2d, animation, aiBounce, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+
+		step: function(dt) {
+		// Tell the stage to run collisions on this sprite
+			this.play("walk");
+			if(this.p.y > 600){
+				this.destroy();
+			}
+		}
+	});
+	
+	Q.animations('white anim', {
 		walk: { frames: [0, 1], rate: 1/4}
 	});
 		
@@ -356,9 +388,9 @@ var game = function() {
 	Q.scene('level1', function(stage) {
 		Q.stageTMX("wynot.tmx", stage);
 		var mario = stage.insert(new Q.Mario());
-		setInterval(function(){stage.insert(new Q.Goomba({y:400,x:8000,vx:-50}));},3500);
-		setInterval(function(){stage.insert(new Q.Goomba({y:400,x:4000,vx:-50}));},5000);
-		setInterval(function(){stage.insert(new Q.Goomba({y:400,x:2000,vx:-50}));},3000);
+		setInterval(function(){stage.insert(new Q.Negro({y:400,x:8000,vx:-50}));},3500);
+		setInterval(function(){stage.insert(new Q.Negro({y:400,x:4000,vx:-50}));},5000);
+		setInterval(function(){stage.insert(new Q.Blanco({y:400,x:2000,vx:-50}));},3000);
 		var peach = stage.insert(new Q.Peach());
 		stage.add("viewport").follow(mario, {x:true, y:false});
 	});
@@ -370,7 +402,7 @@ var game = function() {
 		stage.insert(new Q.Bloopa());
 		setInterval(function(){stage.insert(new Q.Bloopa());},4000);
 		setInterval(function(){stage.insert(new Q.Bloopa({x:3094,y:500}));},3000);
-		setInterval(function(){stage.insert(new Q.Goomba({y:400,x:1300}));},3000);
+		setInterval(function(){stage.insert(new Q.Negro({y:400,x:1300}));},3000);
 		var peach = stage.insert(new Q.Peach());
 		var coin = stage.insert(new Q.Coin({x:300, y:400}));
 		var coin2 = stage.insert(new Q.Coin({x:350, y:400}));
