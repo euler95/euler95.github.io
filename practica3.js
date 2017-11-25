@@ -40,7 +40,7 @@ var game = function() {
 			sheet: "marioR",
 			x: 150,
 			y: 280,
-			jumpSpeed: -500,
+			jumpSpeed: -800,
 			dead: false
 		});
 		this.add('2d, platformerControls, animation');
