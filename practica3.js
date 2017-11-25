@@ -128,8 +128,7 @@ var game = function() {
 	Q.component('defaultEnemy', {
 		
 		added: function() {
-			this.entity.on("bump.left, bump.right", this.entity, "kill");
-			this.entity.on("bump.top", this.entity, "stomp");
+			this.entity.on("bump.left, bump.right","bump.top", this.entity, "kill");
 		},
 		
 		extend: {
@@ -388,9 +387,8 @@ var game = function() {
 	Q.scene('level1', function(stage) {
 		Q.stageTMX("wynot.tmx", stage);
 		var mario = stage.insert(new Q.Mario());
-		setInterval(function(){stage.insert(new Q.Negro({y:400,x:8000,vx:-50}));},3500);
-		setInterval(function(){stage.insert(new Q.Negro({y:400,x:4000,vx:-50}));},5000);
-		setInterval(function(){stage.insert(new Q.Blanco({y:400,x:2000,vx:-50}));},3000);
+		stage.insert(new Q.Blanco({y:400,x:2000,vx:-50}));
+		stage.insert(new Q.Negro({y:400,x:4000,vx:-50}));
 		var peach = stage.insert(new Q.Peach());
 		stage.add("viewport").follow(mario, {x:true, y:false});
 	});
