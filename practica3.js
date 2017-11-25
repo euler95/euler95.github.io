@@ -128,7 +128,7 @@ var game = function() {
 	Q.component('defaultEnemy', {
 		
 		added: function() {
-			this.entity.on("bump.left, bump.right","bump.top", this.entity, "kill");
+			this.entity.on("bump.left, bump.right, bump.top", this.entity, "kill");
 		},
 		
 		extend: {
