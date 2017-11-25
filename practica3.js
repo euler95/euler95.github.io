@@ -419,8 +419,8 @@ var game = function() {
 	Q.scene('level1', function(stage) {
 		Q.stageTMX("wynot.tmx", stage);
 		var mario = stage.insert(new Q.Mario());
-		stage.insert(new Q.Blanco({y:400,x:2000,vx:-150}));
-		stage.insert(new Q.Negro({y:400,x:4000,vx:-100}));
+		stage.insert(new Q.Blanco({y:400,x:2000,vx:-250}));
+		stage.insert(new Q.Negro({y:400,x:4000,vx:-200}));
 		stage.insert(new Q.Pardillos({y:400,x:5000,vx:0}));
 		var peach = stage.insert(new Q.Peach());
 		stage.add("viewport").follow(mario, {x:true, y:false});
