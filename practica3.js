@@ -25,7 +25,7 @@ var game = function() {
 		Q.compileSheets("goomba.png","goomba.json");
 		Q.compileSheets("coin.png", "coin.json");
 		Q.compileSheets("nigga.png", "nigga.json");
-		Q.audio.play("music_main.mp3",{ loop: true });
+		Q.audio.play("wynot.mp3",{ loop: true });
 	});
 	
 	//------------MARIO
@@ -66,7 +66,7 @@ var game = function() {
 	  death: function(){
 		if(!levelwin && !this.p.dead)
 			Q.audio.stop("");
-			Q.audio.play("wynot.mp3");
+			Q.audio.play("music_die.mp3");
 			this.del('platformerControls');
 			this.p.vx = 0;
 			this.p.vy = -400;
