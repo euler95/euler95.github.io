@@ -314,8 +314,7 @@ var game = function() {
 		init: function(p) {
 			// Listen for hit event and call the collision method
 			this._super(p,{
-				sprite: 'xen anim',
-				sheet: "xen"
+				asset: "xen.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
