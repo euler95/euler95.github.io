@@ -45,8 +45,8 @@ var game = function() {
 			sheet: "unicornioRun",
 			x: 150,
 			y: 230,
-			jumpSpeed: -800,
-			gravity: 1.5,
+			jumpSpeed: -700,
+			gravity: 1,
 			dead: false
 		});
 		this.add('2d, platformerControls, animation');
