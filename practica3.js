@@ -62,7 +62,6 @@ var game = function() {
 		if(!levelwin && !this.p.dead)
 			this.del('platformerControls');
 			this.p.vx = 0;
-			this.p.vy = -400;
 			this.play("die");
 			this.p.dead = true;
 			var self = this;
@@ -74,7 +73,6 @@ var game = function() {
 			else{
 				Q.stageScene("endGame", 1, {label: "You died"});
 			}
-			setTimeout(function(){self.destroy();}, 1000);
 	  },
 	  
 	});
