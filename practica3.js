@@ -510,7 +510,7 @@ var game = function() {
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
-		var button = box.insert(new Q.UI.Button({ x: Q.width, y: Q.height, fill: "#CCCCCC", asset: "mainTitle.png" })); 
+		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "mainTitle.png" })); 
 		button.on("click", init0);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
@@ -522,7 +522,7 @@ var game = function() {
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
-		var button = box.insert(new Q.UI.Button({ x: Q.width, y: Q.height, fill: "#CCCCCC", asset: "intro1.png" })); 
+		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro1.png" })); 
 		button.on("click", init1);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
@@ -534,7 +534,7 @@ var game = function() {
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
-		var button = box.insert(new Q.UI.Button({ x: Q.width, y: Q.height, fill: "#CCCCCC", asset: "intro2.png" })); 
+		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro2.png" })); 
 		button.on("click", init2);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
