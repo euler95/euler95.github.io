@@ -42,7 +42,7 @@ var game = function() {
 			sprite: "unicornio anim",
 			sheet: "unicornioRun",
 			x: 150,
-			y: 280,
+			y: 230,
 			jumpSpeed: -650,
 			dead: false
 		});
