@@ -25,6 +25,7 @@ var game = function() {
 		Q.compileSheets("bloopa.png","bloopa.json");
 		Q.compileSheets("goomba.png","goomba.json");
 		Q.compileSheets("coin.png", "coin.json");
+		Q.compileSheets("sobre.png", "sobre.json");
 		Q.compileSheets("nigga.png", "nigga.json");
 		Q.compileSheets("unicornio.png", "unicornio.json");
 		Q.compileSheets("pardillos.png", "pardillos.json");
