@@ -770,7 +770,7 @@ var game = function() {
 		var unicornio = stage.insert(new Q.Unicornio());
 		//setInterval(function(){stage.insert(new Q.Bloopa());},4000);
 		
-		stage.insert(new Q.Trump({y:400,x:1500}));
+		stage.insert(new Q.Sobre({y:400,x:1500}));
 		stage.insert(new Q.Water({y:400,x:2300}));
 		stage.insert(new Q.Water({y:400,x:3000}));
 		stage.insert(new Q.Water({y:400,x:3050}));
