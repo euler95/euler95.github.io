@@ -79,8 +79,8 @@ var game = function() {
 	  
 	});
 	Q.animations('unicornio anim', {
-		run: { frames: [1, 2, 3], rate: 1/5},
-		die: { frames: [4], rate: 1/5 }
+		run: { frames: [0, 1, 2], rate: 1/10},
+		die: { frames: [3], rate: 1/5 }
 	});
 	
 	//------------PRINCESS
