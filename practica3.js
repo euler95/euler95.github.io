@@ -549,7 +549,7 @@ var game = function() {
 		stage.insert(new Q.Silla({y:400,x:2500}));
 		stage.insert(new Q.Miri({y:400,x:3500}));
 		stage.insert(new Q.Tony({y:400,x:4500}));
-		stage.insert(new Q.Xen({y:400,x:5500}));
+		stage.insert(new Q.Xen({y:400,x:5200}));
 		stage.insert(new Q.Dave({y:400,x:6500}));
 		stage.insert(new Q.Barricada({y:400,x:7500}));
 		stage.insert(new Q.Silla({y:400,x:8500}));
