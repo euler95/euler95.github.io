@@ -313,7 +313,7 @@ var game = function() {
 	Q.Sprite.extend("Xen",{
 		init: function(p) {
 			// Listen for hit event and call the collision method
-			this._super( {
+			this._super(p,{
 				sprite: 'xen anim',
 				sheet: "xen"
 			});
@@ -332,7 +332,7 @@ var game = function() {
 	Q.Sprite.extend("Tony",{
 		init: function(p) {
 			// Listen for hit event and call the collision method
-			this._super( {
+			this._super( p,{
 				asset:"tony.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
@@ -346,7 +346,7 @@ var game = function() {
 	Q.Sprite.extend("Silla",{
 		init: function(p) {
 			// Listen for hit event and call the collision method
-			this._super( {
+			this._super( p,{
 				asset:"silla.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
@@ -360,7 +360,7 @@ var game = function() {
 	Q.Sprite.extend("Results",{
 		init: function(p) {
 			// Listen for hit event and call the collision method
-			this._super( {
+			this._super( p,{
 				asset:"results.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
@@ -374,7 +374,7 @@ var game = function() {
 	Q.Sprite.extend("Miri",{
 		init: function(p) {
 			// Listen for hit event and call the collision method
-			this._super( {
+			this._super(p, {
 				asset:"miri.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
@@ -388,7 +388,7 @@ var game = function() {
 	Q.Sprite.extend("Dave",{
 		init: function(p) {
 			// Listen for hit event and call the collision method
-			this._super( {
+			this._super(p, {
 				asset:"dave.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
@@ -402,7 +402,7 @@ var game = function() {
 	Q.Sprite.extend("Barricada",{
 		init: function(p) {
 			// Listen for hit event and call the collision method
-			this._super( {
+			this._super(p, {
 				asset:"barricada.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
