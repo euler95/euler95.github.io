@@ -18,7 +18,7 @@ var game = function() {
 	
 	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
 			"nigga.png", "nigga.json","white.png","white.json","pardillos.png","pardillos.json",
-			"unicornio.png","unicornio.json","sobre.png","sobre.json","xen.png",
+			"unicornio.png","unicornio.json","sobre.png","sobre.json","xen.png", "puerta.png",
 			"tony.png","silla.png","results.png","miri.png","dave.png", "barricada.png",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", 
 					"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
@@ -94,9 +94,9 @@ var game = function() {
 	Q.Sprite.extend("Peach", {
 	  
 	  init: function(p) {
-		this._super( {
-			asset: "princess.png",
-			x: 9000,
+		this._super( p,{
+			asset: "puerta.png",
+			x: 14000,
 			y: 500
 		});
 		this.add('2d');
