@@ -792,11 +792,11 @@ var game = function() {
 		stage.insert(new Q.Sobre2({y:400,x:20500}));
 		stage.insert(new Q.Sobre2({y:400,x:21500}));
 		*/
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},27000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:18500}));},27000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},27000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},27000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:18500}));},27000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},22000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:18500}));},24000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},26000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},28000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:18500}));},30000);
 		
 		stage.insert(new Q.Silla({y:400,x:19000}));
 		stage.insert(new Q.Puerta({y:400,x:19500}));
