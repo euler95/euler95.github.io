@@ -43,7 +43,7 @@ var game = function() {
 			sheet: "unicornioRun",
 			x: 150,
 			y: 230,
-			jumpSpeed: -850,
+			jumpSpeed: -650,
 			dead: false
 		});
 		this.add('2d, platformerControls, animation');
