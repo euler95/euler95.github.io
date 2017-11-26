@@ -777,7 +777,7 @@ var game = function() {
 		stage.insert(new Q.Water({y:400,x:3050}));
 		stage.insert(new Q.Broken({y:400,x:3700}));
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:4800}));},7000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:5300}));},9000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:5300}));},8000);
 		stage.insert(new Q.Pixar({y:400,x:8500}));
 		stage.insert(new Q.Sobre2({y:400,x:9500}));
 		stage.insert(new Q.Pizarra({y:400,x:10500}));
