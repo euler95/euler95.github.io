@@ -18,6 +18,7 @@ var game = function() {
 	
 	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
 			"nigga.png", "nigga.json","white.png","white.json","pardillos.png","pardillos.json",
+			"trump.png","water.png","broken.png","sobre2.png","pixar.png","pizarra.png","bryan.png","wtf.png", "martina.png",
 			"unicornio.png","unicornio.json","sobre.png","sobre.json","xen.png", "puerta.png",
 			"tony.png","silla.png","results.png","miri.png","dave.png", "barricada.png",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", "intro1.png", "intro2.png",
@@ -27,6 +28,7 @@ var game = function() {
 		Q.compileSheets("goomba.png","goomba.json");
 		Q.compileSheets("coin.png", "coin.json");
 		Q.compileSheets("sobre.png", "sobre.json");
+		Q.compileSheets("sobre2.png", "sobre2.json");
 		Q.compileSheets("nigga.png", "nigga.json");
 		Q.compileSheets("unicornio.png", "unicornio.json");
 		Q.compileSheets("pardillos.png", "pardillos.json");
@@ -308,6 +310,37 @@ var game = function() {
 		fly: { frames: [0, 1, 2], rate: 1/4}
 	});
 	
+	//------------SOBRE2
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Sobre2",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p, {
+				sprite: 'sobre2 anim',
+				sheet: "sobre2Fly",
+				vx: -450,
+				x: 250,
+				y: 500,
+				gravity:0
+			});
+			this.add('2d, animation, aiBounce, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+
+		step: function(dt) {
+		// Tell the stage to run collisions on this sprite
+			this.play("fly");
+			if(this.p.y > 600){
+				this.destroy();
+			}
+		}
+	});
+	
+	Q.animations('sobre2 anim', {
+		fly: { frames: [0, 1, 2], rate: 1/4}
+	});
+	
 	//------------Xen
 	//-----------------------------------------------------
 	//-----------------------------------------------------
@@ -410,6 +443,125 @@ var game = function() {
 		},
 	});
 	
+	//------------TRUMP
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Trump",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p,{
+				asset: "trump.png"
+			});
+			this.add('2d, animation, aiBounce, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	
+	//------------Water
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Water",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p,{
+				asset: "water.png"
+			});
+			this.add('2d, animation, aiBounce, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	
+	//------------BROKEN
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Broken",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p,{
+				asset: "broken.png"
+			});
+			this.add('2d, animation, aiBounce, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	
+	//------------PIXAR
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Pixar",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p,{
+				asset: "pixar.png"
+			});
+			this.add('2d, animation, aiBounce, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	
+	//------------PIZARRA
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Pizarra",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p,{
+				asset: "pizarra.png"
+			});
+			this.add('2d, animation, aiBounce, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	
+	//------------BRYAN
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Bryan",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p,{
+				asset: "bryan.png"
+			});
+			this.add('2d, animation, aiBounce, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	
+	//------------WTF
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Wtf",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p,{
+				asset: "wtf.png"
+			});
+			this.add('2d, animation, aiBounce, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	
+	//------------Martina
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Martina",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p,{
+				asset: "martina.png"
+			});
+			this.add('2d, animation, aiBounce, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
 	
 	
 	
@@ -454,7 +606,7 @@ var game = function() {
 	
 	
 
-	Q.loadTMX("level1.tmx, sprites.json, level2.tmx, wynot.tmx", function() {
+	Q.loadTMX("level1.tmx, sprites.json, level2.tmx, wynot.tmx, wynot2.tmx", function() {
 		Q.stageScene("mainTitle");
 	});
 	
@@ -582,7 +734,6 @@ var game = function() {
 		// Create a new scene called level 1
 	Q.scene('level1', function(stage) {
 		Q.stageTMX("wynot.tmx", stage);
-		console.log("xen");
 		var unicornio = stage.insert(new Q.Unicornio());
 		stage.insert(new Q.Silla({y:400,x:2500}));
 		stage.insert(new Q.Miri({y:400,x:3500}));
@@ -602,20 +753,34 @@ var game = function() {
 	// ## Level2 scene
 		// Create a new scene called level 2
 	Q.scene('level2', function(stage) {
-		Q.stageTMX("level2.tmx", stage);
+		Q.stageTMX("wynot2.tmx", stage);
 		var unicornio = stage.insert(new Q.Unicornio());
-		stage.insert(new Q.Bloopa());
 		setInterval(function(){stage.insert(new Q.Bloopa());},4000);
 		setInterval(function(){stage.insert(new Q.Bloopa({x:3094,y:500}));},3000);
 		setInterval(function(){stage.insert(new Q.Negro({y:400,x:1300}));},3000);
+		stage.insert(new Q.Trump({y:400,x:2500}));
+		stage.insert(new Q.Water({y:400,x:3500}));
+		stage.insert(new Q.Water({y:400,x:4500}));
+		stage.insert(new Q.Water({y:400,x:5200}));
+		stage.insert(new Q.Broken({y:400,x:6500}));
+		stage.insert(new Q.Sobre({y:400,x:7500}));
+		stage.insert(new Q.Pixar({y:400,x:8500}));
+		stage.insert(new Q.Sobre2({y:400,x:9500}));
+		stage.insert(new Q.Pizarra({y:400,x:10500}));
+		stage.insert(new Q.Martina({y:400,x:11500}));
+		stage.insert(new Q.Bryan({y:400,x:12500}));
+		stage.insert(new Q.Negro({y:400,x:13500}));
+		stage.insert(new Q.Blanco({y:400,x:14500}));
+		stage.insert(new Q.Pardillos({y:400,x:15500}));
+		stage.insert(new Q.Wtf({y:400,x:16500}));
+		stage.insert(new Q.Sobre({y:400,x:17200}));
+		stage.insert(new Q.Sobre2({y:400,x:18500}));
+		stage.insert(new Q.Sobre({y:400,x:19500}));
+		stage.insert(new Q.Sobre2({y:400,x:20500}));
+		stage.insert(new Q.Sobre2({y:400,x:21500}));
+		stage.insert(new Q.Silla({y:400,x:22500}));
+		
 		var peach = stage.insert(new Q.Peach());
-		var coin = stage.insert(new Q.Coin({x:300, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:350, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:450, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:650, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:700, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:1200, y:400}));
-		var coin2 = stage.insert(new Q.Coin({x:1250, y:400}));
 		
 		stage.add("viewport").follow(unicornio, {x:true, y:false});
 	});
