@@ -759,8 +759,8 @@ var game = function() {
 		
 		stage.insert(new Q.Trump({y:400,x:1500}));
 		stage.insert(new Q.Water({y:400,x:2300}));
-		stage.insert(new Q.Water({y:400,x:2800}));
-		stage.insert(new Q.Water({y:400,x:2850}));
+		stage.insert(new Q.Water({y:400,x:3000}));
+		stage.insert(new Q.Water({y:400,x:3050}));
 		stage.insert(new Q.Broken({y:400,x:3500}));
 		stage.insert(new Q.Sobre({y:400,x:7500}));
 		stage.insert(new Q.Pixar({y:400,x:8500}));
