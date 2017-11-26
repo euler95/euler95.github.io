@@ -770,12 +770,12 @@ var game = function() {
 		var unicornio = stage.insert(new Q.Unicornio());
 		//setInterval(function(){stage.insert(new Q.Bloopa());},4000);
 		
-		stage.insert(new Q.Sobre2({y:400,x:1500}));
+		stage.insert(new Q.Trump({y:400,x:1500}));
 		stage.insert(new Q.Water({y:400,x:2300}));
 		stage.insert(new Q.Water({y:400,x:3000}));
 		stage.insert(new Q.Water({y:400,x:3050}));
 		stage.insert(new Q.Broken({y:400,x:3700}));
-		setTimeout(function(){stage.insert(new Q.Water({y:400,x:4800}));},7000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:4800}));},7000);
 		stage.insert(new Q.Pixar({y:400,x:8500}));
 		stage.insert(new Q.Sobre2({y:400,x:9500}));
 		stage.insert(new Q.Pizarra({y:400,x:10500}));
