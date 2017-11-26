@@ -755,9 +755,8 @@ var game = function() {
 	Q.scene('level2', function(stage) {
 		Q.stageTMX("wynot2.tmx", stage);
 		var unicornio = stage.insert(new Q.Unicornio());
-		setInterval(function(){stage.insert(new Q.Bloopa());},4000);
-		setInterval(function(){stage.insert(new Q.Bloopa({x:3094,y:500}));},3000);
-		setInterval(function(){stage.insert(new Q.Negro({y:400,x:1300}));},3000);
+		//setInterval(function(){stage.insert(new Q.Bloopa());},4000);
+		
 		stage.insert(new Q.Trump({y:400,x:2500}));
 		stage.insert(new Q.Water({y:400,x:3500}));
 		stage.insert(new Q.Water({y:400,x:4500}));
