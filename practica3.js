@@ -54,7 +54,7 @@ var game = function() {
 			this.death();
 		}
 		if(!this.p.dead){
-			if(this.p.vy)
+			if(!this.p.vy)
 				this.play("run");
 			else
 				this.play("jump");
