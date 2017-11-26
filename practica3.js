@@ -286,7 +286,7 @@ var game = function() {
 				vx: -450,
 				x: 250,
 				y: 500,
-				gravity=0
+				gravity: 0
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
