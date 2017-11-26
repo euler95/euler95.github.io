@@ -314,11 +314,15 @@ var game = function() {
 		init: function(p) {
 			// Listen for hit event and call the collision method
 			this._super( {
-				asset:"xen.png"
-			});
-			this.add('2d, defaultEnemy');
+				sprite: 'xen anim',
+				sheet: "xen"
+			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
 		},
+	});
+	
+	Q.animations('xen anim', {
+		stay: { frames: [0], rate: 1/5}
 	});
 	
 	//------------Tony
@@ -330,7 +334,7 @@ var game = function() {
 			this._super( {
 				asset:"tony.png"
 			});
-			this.add('2d, defaultEnemy');
+			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
 		},
 	});
@@ -344,7 +348,7 @@ var game = function() {
 			this._super( {
 				asset:"silla.png"
 			});
-			this.add('2d, defaultEnemy');
+			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
 		},
 	});
@@ -358,7 +362,7 @@ var game = function() {
 			this._super( {
 				asset:"results.png"
 			});
-			this.add('2d, defaultEnemy');
+			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
 		},
 	});
@@ -372,7 +376,7 @@ var game = function() {
 			this._super( {
 				asset:"miri.png"
 			});
-			this.add('2d, defaultEnemy');
+			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
 		},
 	});
@@ -386,7 +390,7 @@ var game = function() {
 			this._super( {
 				asset:"dave.png"
 			});
-			this.add('2d, defaultEnemy');
+			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
 		},
 	});
@@ -400,7 +404,7 @@ var game = function() {
 			this._super( {
 				asset:"barricada.png"
 			});
-			this.add('2d, defaultEnemy');
+			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
 		},
 	});
