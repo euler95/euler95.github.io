@@ -301,7 +301,7 @@ var game = function() {
 		}
 	});
 	
-	Q.animations('nigga anim', {
+	Q.animations('sobre anim', {
 		fly: { frames: [0, 1, 2], rate: 1/4}
 	});
 	
