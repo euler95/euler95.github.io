@@ -343,7 +343,7 @@ var game = function() {
 		
 		bounce: function(collision) {
 			this.kill(collision);
-			this.destroy();
+			//this.destroy();
 		}
 	});
 	
@@ -792,11 +792,11 @@ var game = function() {
 		stage.insert(new Q.Sobre2({y:400,x:20500}));
 		stage.insert(new Q.Sobre2({y:400,x:21500}));
 		*/
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:200,x:19300}));},22000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:200,x:21300}));},22000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:200,x:5300}));},22000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:200,x:5300}));},22000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:200,x:5300}));},22000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:200,x:19300}));},27000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:200,x:21300}));},27000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:200,x:5300}));},27000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:200,x:5300}));},27000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:200,x:5300}));},27000);
 		
 		stage.insert(new Q.Silla({y:400,x:19000}));
 		stage.insert(new Q.Puerta({y:400,x:19500}));
