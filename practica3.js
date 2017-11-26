@@ -260,7 +260,7 @@ var game = function() {
 			this._super(p, {
 				sprite: 'pardillos anim',
 				sheet: "pardillosStay",
-				vx: 150,
+				vx: 0,
 				x: 250,
 				y: 500
 			});
