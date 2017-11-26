@@ -54,7 +54,10 @@ var game = function() {
 			this.death();
 		}
 		if(!this.p.dead){
-			this.play("run");
+			if(this.p.vy)
+				this.play("run");
+			else
+				this.play("jump");
 		}
 	  },
 	  
@@ -77,7 +80,8 @@ var game = function() {
 	  
 	});
 	Q.animations('unicornio anim', {
-		run: { frames: [0, 1, 2], rate: 1/5},
+		run: { frames: [0, 1], rate: 1/5},
+		jump:{frames:[2], rate:1/5}
 		die: { frames: [3], rate: 1/5 }
 	});
 	
