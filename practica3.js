@@ -18,6 +18,7 @@ var game = function() {
 	
 	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
 			"nigga.png", "nigga.json","white.png","white.json","pardillos.png","pardillos.json",
+			"unicornio.png","unicornio.json",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", 
 					"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("mario_small.png","mario_small.json");
@@ -25,20 +26,21 @@ var game = function() {
 		Q.compileSheets("goomba.png","goomba.json");
 		Q.compileSheets("coin.png", "coin.json");
 		Q.compileSheets("nigga.png", "nigga.json");
+		Q.compileSheets("unicornio.png", "unicornio.json");
 		Q.compileSheets("pardillos.png", "pardillos.json");
 		Q.compileSheets("white.png", "white.json");
 		Q.audio.play("wynot.mp3",{ loop: true });
 	});
 	
-	//------------MARIO
+	//------------Unicornio
 	//-----------------------------------------------------
 	//-----------------------------------------------------
-	Q.Sprite.extend("Mario", {
+	Q.Sprite.extend("Unicornio", {
 	  
 	  init: function(p) {
 		this._super(p, {
-			sprite: "mario anim",
-			sheet: "marioR",
+			sprite: "unicornio anim",
+			sheet: "unicornioRun",
 			x: 150,
 			y: 280,
 			jumpSpeed: -650,
@@ -52,27 +54,16 @@ var game = function() {
 			this.death();
 		}
 		if(!this.p.dead){
-			
-			if(this.p.direction == "right"){
-				if(this.p.vx != 0 && this.p.vy == 0){
-					this.play("run_right");
-				}else if (this.p.vy != 0){
-					this.play("jump_right");
-				}else {
-					this.play("stand_right");
-				}
-			}
+			this.play("run");
 		}
 	  },
 	  
 	  death: function(){
 		if(!levelwin && !this.p.dead)
-			Q.audio.stop("");
-			Q.audio.play("music_die.mp3");
 			this.del('platformerControls');
 			this.p.vx = 0;
 			this.p.vy = -400;
-			this.play("dead_"+this.p.direction);
+			this.play("die");
 			this.p.dead = true;
 			var self = this;
 			Q.state.inc("lives", -1);
@@ -87,15 +78,9 @@ var game = function() {
 	  },
 	  
 	});
-	Q.animations('mario anim', {
-		run_right: { frames: [1, 2, 3], rate: 1/10},
-		run_left: { frames: [17, 16, 15], rate: 1/10 },
-		stand_right: { frames: [0], rate: 1/5 },
-		stand_left: { frames: [14], rate: 1/5 },
-		jump_right: { frames: [4], rate: 1/5 },
-		jump_left: { frames: [18], rate: 1/5 },
-		dead_right: { frames: [12], rate: 1/5 },
-		dead_left: { frames: [26], rate: 1/5 }
+	Q.animations('unicornio anim', {
+		run: { frames: [1, 2, 3], rate: 1/5},
+		die: { frames: [4], rate: 1/5 }
 	});
 	
 	//------------PRINCESS
@@ -113,7 +98,7 @@ var game = function() {
 		this.on("bump.left, bump.right, bump.top", this, "win");
 	  },
 	  win: function(collision){
-		if(collision.obj.isA("Mario")){
+		if(collision.obj.isA("Unicornio")){
 			collision.obj.del('platformerControls');
 			collision.obj.p.vx=0;
 			levelwin = true;
@@ -134,7 +119,7 @@ var game = function() {
 		
 		extend: {
 			stomp: function(collision) {
-				if(collision.obj.isA("Mario")) {
+				if(collision.obj.isA("Unicornio")) {
 					//this.play("die", 1);
 					this.p.vx=0;
 					this.p.vy=0;
@@ -146,7 +131,7 @@ var game = function() {
 			},
 			
 			kill: function(collision) {
-				if(collision.obj.isA("Mario")) {
+				if(collision.obj.isA("Unicornio")) {
 					collision.obj.death();
 				}
 			}
@@ -303,7 +288,7 @@ var game = function() {
 		},
 		
 		getCoin: function(collision) {
-			if(collision.obj.isA("Mario") && !this.p.catched) {
+			if(collision.obj.isA("Unicornio") && !this.p.catched) {
 				Q.audio.stop('coin.mp3');
 				Q.audio.play('coin.mp3');
 				this.animate({x: this.p.x, y: this.p.y-100, opacity: 0}, 1, Q.Easing.Quadratic.Out);
@@ -346,7 +331,7 @@ var game = function() {
 				Q.stageScene('level'+currentLevel);
 				Q.stageScene('HUD', 1);
 			});
-		}else{ //Mario dies
+		}else{ //Unicornio dies
 			if(!lost){ //lives >= 0
 				var button = box.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC", label: "Play Again" }));
 				button.on("click",function() {
@@ -418,18 +403,18 @@ var game = function() {
 		// Create a new scene called level 1
 	Q.scene('level1', function(stage) {
 		Q.stageTMX("wynot.tmx", stage);
-		var mario = stage.insert(new Q.Mario());
+		var unicornio = stage.insert(new Q.Unicornio());
 		stage.insert(new Q.Blanco({y:400,x:2000,vx:-250}));
 		stage.insert(new Q.Negro({y:400,x:4000,vx:-200}));
 		stage.insert(new Q.Pardillos({y:400,x:5000,vx:0}));
 		var peach = stage.insert(new Q.Peach());
-		stage.add("viewport").follow(mario, {x:true, y:false});
+		stage.add("viewport").follow(unicornio, {x:true, y:false});
 	});
 	// ## Level2 scene
 		// Create a new scene called level 2
 	Q.scene('level2', function(stage) {
 		Q.stageTMX("level2.tmx", stage);
-		var mario = stage.insert(new Q.Mario());
+		var unicornio = stage.insert(new Q.Unicornio());
 		stage.insert(new Q.Bloopa());
 		setInterval(function(){stage.insert(new Q.Bloopa());},4000);
 		setInterval(function(){stage.insert(new Q.Bloopa({x:3094,y:500}));},3000);
@@ -443,7 +428,7 @@ var game = function() {
 		var coin2 = stage.insert(new Q.Coin({x:1200, y:400}));
 		var coin2 = stage.insert(new Q.Coin({x:1250, y:400}));
 		
-		stage.add("viewport").follow(mario, {x:true, y:false});
+		stage.add("viewport").follow(unicornio, {x:true, y:false});
 	});
 };
 

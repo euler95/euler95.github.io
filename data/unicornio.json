@@ -1,0 +1,4 @@
+{
+	"unicornioRun":{"sx":0,"sy":0,"tileW":175,"tileH":159,"frames":3},
+	"unicornoDie":{"sx":525,"sy":0,"tileW":175,"tileH":159,"frames":1}
+}
