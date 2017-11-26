@@ -67,7 +67,9 @@ var game = function() {
 	  },
 	  
 	  death: function(){
-		if(!levelwin && !this.p.dead)
+		if(!levelwin && !this.p.dead){
+			Q.audio.stop();
+			Q.audio.play("music_die.mp3");
 			this.del('platformerControls');
 			this.p.vx = 0;
 			this.p.vy=-300;
@@ -82,6 +84,7 @@ var game = function() {
 			else{
 				Q.stageScene("endGame", 1, {label: "You died"});
 			}
+		}
 	  },
 	  
 	});
