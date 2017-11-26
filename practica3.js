@@ -781,9 +781,9 @@ var game = function() {
 		stage.insert(new Q.Martina({y:400,x:7600}));
 		stage.insert(new Q.Bryan({y:400,x:8400}));
 		//stage.insert(new Q.Negro({y:400,x:13500}));
-		setTimeout(function(){stage.insert(new Q.Negro({y:400,x:13500}));},15000);
+		setTimeout(function(){stage.insert(new Q.Negro({y:400,x:10500}));},12000);
 		//stage.insert(new Q.Blanco({y:400,x:14500}));
-		setTimeout(function(){stage.insert(new Q.Blanco({y:400,x:13500}));},15000);
+		setTimeout(function(){stage.insert(new Q.Blanco({y:400,x:10500}));},13000);
 		stage.insert(new Q.Pardillos({y:400,x:15500}));
 		stage.insert(new Q.Wtf({y:400,x:16500}));
 		/*stage.insert(new Q.Sobre({y:400,x:17200}));
