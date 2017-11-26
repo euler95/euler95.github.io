@@ -96,9 +96,9 @@ var game = function() {
 	  
 	  init: function(p) {
 		this._super( p,{
-			asset: "puerta.png",
+			asset: "princess.png",
 			x: 14000,
-			y: 500
+			y: 300
 		});
 		this.add('2d');
 		this.on("bump.left, bump.right, bump.top", this, "win");
