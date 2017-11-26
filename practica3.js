@@ -19,6 +19,7 @@ var game = function() {
 	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
 			"nigga.png", "nigga.json","white.png","white.json","pardillos.png","pardillos.json",
 			"unicornio.png","unicornio.json","sobre.png","sobre.json","xen.png",
+			"tony.png","silla.png","results.png","miri.png","dave.png", "barricada.png",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", 
 					"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("mario_small.png","mario_small.json");
@@ -192,7 +193,7 @@ var game = function() {
 			this._super(p, {
 				sprite: 'nigga anim',
 				sheet: "niggaWalk",
-				vx: 150,
+				vx: -300,
 				x: 250,
 				y: 500
 			});
@@ -223,7 +224,7 @@ var game = function() {
 			this._super(p, {
 				sprite: 'white anim',
 				sheet: "whiteWalk",
-				vx: 150,
+				vx: -250,
 				x: 250,
 				y: 500
 			});
@@ -321,6 +322,104 @@ var game = function() {
 			this.on("bump.bottom", this, "kill");
 		},
 	});
+	
+	//------------Tony
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Tony",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super( {
+				asset:"tony.png",
+				x: 250,
+				y: 500,
+			});
+			this.add('2d, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	//------------Silla
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Silla",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super( {
+				asset:"silla.png",
+				x: 250,
+				y: 500,
+			});
+			this.add('2d, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	//------------Results
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Results",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super( {
+				asset:"results.png",
+				x: 250,
+				y: 500,
+			});
+			this.add('2d, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	//------------Miri
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Miri",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super( {
+				asset:"miri.png",
+				x: 250,
+				y: 500,
+			});
+			this.add('2d, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	//------------Dave
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Dave",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super( {
+				asset:"dave.png",
+				x: 250,
+				y: 500,
+			});
+			this.add('2d, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	//------------Barricada
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Barricada",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super( {
+				asset:"barricada.png",
+				x: 250,
+				y: 500,
+			});
+			this.add('2d, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	
 	
 	
 	//------------COIN
@@ -457,10 +556,18 @@ var game = function() {
 		Q.stageTMX("wynot.tmx", stage);
 		console.log("version animacion lenta");
 		var unicornio = stage.insert(new Q.Unicornio());
-		stage.insert(new Q.Blanco({y:400,x:2000,vx:-250}));
-		stage.insert(new Q.Xen({y:400,x:1500}));
-		stage.insert(new Q.Negro({y:400,x:4000,vx:-200}));
-		stage.insert(new Q.Pardillos({y:400,x:5000,vx:0}));
+		stage.insert(new Q.Silla({y:400,x:2500}));
+		stage.insert(new Q.Miri({y:400,x:3500}));
+		stage.insert(new Q.Tony({y:400,x:4500}));
+		stage.insert(new Q.Xen({y:400,x:5500}));
+		stage.insert(new Q.Dave({y:400,x:6500}));
+		stage.insert(new Q.Barricada({y:400,x:7500}));
+		stage.insert(new Q.Silla({y:400,x:8500}));
+		stage.insert(new Q.Resultados({y:400,x:9500}));
+		stage.insert(new Q.Nigga({y:400,x:10500}));
+		stage.insert(new Q.Blanco({y:400,x:11500}));
+		stage.insert(new Q.Nigga({y:400,x:12500}));
+		stage.insert(new Q.Silla({y:400,x:13500}));
 		var peach = stage.insert(new Q.Peach());
 		stage.add("viewport").follow(unicornio, {x:true, y:false});
 	});
