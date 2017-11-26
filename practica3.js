@@ -96,7 +96,7 @@ var game = function() {
 	  
 	  init: function(p) {
 		this._super( p,{
-			asset: "princess.png",
+			asset: "puerta.png",
 			x: 14000,
 			y: 300
 		});
