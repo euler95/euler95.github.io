@@ -125,7 +125,7 @@ var game = function() {
 	Q.component('defaultEnemy', {
 		
 		added: function() {
-			this.entity.on("bump.left, bump.right, bump.top", this.entity, "kill");
+			this.entity.on("bump.right, bump.top", this.entity, "kill");
 		},
 		
 		extend: {
@@ -204,7 +204,7 @@ var game = function() {
 				y: 500
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 
 		step: function(dt) {
@@ -235,7 +235,7 @@ var game = function() {
 				y: 500
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 
 		step: function(dt) {
@@ -265,7 +265,7 @@ var game = function() {
 				y: 500
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 
 		step: function(dt) {
@@ -296,8 +296,8 @@ var game = function() {
 				y: 500,
 				gravity:0
 			});
-			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.add('2d, animation, defaultEnemy');
+			this.on("bump.left", this, "bounce");
 		},
 
 		step: function(dt) {
@@ -306,6 +306,11 @@ var game = function() {
 			if(this.p.y > 600){
 				this.destroy();
 			}
+		},
+		
+		bounce: function(collision) {
+			this.kill(collision);
+			this.destroy();
 		}
 	});
 	
@@ -327,8 +332,8 @@ var game = function() {
 				y: 500,
 				gravity:0
 			});
-			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.add('2d, animation, defaultEnemy');
+			this.on("bump.left", this, "bounce");
 		},
 
 		step: function(dt) {
@@ -337,6 +342,11 @@ var game = function() {
 			if(this.p.y > 600){
 				this.destroy();
 			}
+		},
+		
+		bounce: function(collision) {
+			this.kill(collision);
+			this.destroy();
 		}
 	});
 	
@@ -354,7 +364,7 @@ var game = function() {
 				asset: "xen.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -372,7 +382,7 @@ var game = function() {
 				asset:"tony.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -386,7 +396,7 @@ var game = function() {
 				asset:"silla.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -400,7 +410,7 @@ var game = function() {
 				asset:"results.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -414,7 +424,7 @@ var game = function() {
 				asset:"miri.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -428,7 +438,7 @@ var game = function() {
 				asset:"dave.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -442,7 +452,7 @@ var game = function() {
 				asset:"barricada.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -456,7 +466,7 @@ var game = function() {
 				asset: "trump.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -471,7 +481,7 @@ var game = function() {
 				asset: "water.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -486,7 +496,7 @@ var game = function() {
 				asset: "broken.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -501,7 +511,7 @@ var game = function() {
 				asset: "pixar.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -516,7 +526,7 @@ var game = function() {
 				asset: "pizarra.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -531,7 +541,7 @@ var game = function() {
 				asset: "bryan.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -546,7 +556,7 @@ var game = function() {
 				asset: "wtf.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -561,7 +571,7 @@ var game = function() {
 				asset: "martina.png"
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "kill");
+			this.on("bump.left", this, "kill");
 		},
 	});
 	
@@ -766,6 +776,7 @@ var game = function() {
 		stage.insert(new Q.Water({y:400,x:3050}));
 		stage.insert(new Q.Broken({y:400,x:3700}));
 		setTimeout(function(){stage.insert(new Q.Sobre({y:400,x:4800}));},7000);
+		setTimeout(function(){stage.insert(new Q.Water({y:400,x:3000})); }, 3000);
 		stage.insert(new Q.Pixar({y:400,x:8500}));
 		stage.insert(new Q.Sobre2({y:400,x:9500}));
 		stage.insert(new Q.Pizarra({y:400,x:10500}));
