@@ -67,7 +67,7 @@ var game = function() {
 		if(!levelwin && !this.p.dead)
 			this.del('platformerControls');
 			this.p.vx = 0;
-			this.p.vy=-300;
+			this.p.vy=-500;
 			this.play("die");
 			this.p.dead = true;
 			var self = this;
