@@ -550,9 +550,9 @@ var game = function() {
 		stage.insert(new Q.Barricada({y:400,x:7500}));
 		stage.insert(new Q.Silla({y:400,x:8500}));
 		stage.insert(new Q.Results({y:400,x:9500}));
-		stage.insert(new Q.Nigga({y:400,x:10500}));
+		stage.insert(new Q.Negro({y:400,x:10500}));
 		stage.insert(new Q.Blanco({y:400,x:11500}));
-		stage.insert(new Q.Nigga({y:400,x:12500}));
+		stage.insert(new Q.Negro({y:400,x:12500}));
 		stage.insert(new Q.Silla({y:400,x:13500}));
 		var peach = stage.insert(new Q.Peach());
 		stage.add("viewport").follow(unicornio, {x:true, y:false});
