@@ -285,8 +285,7 @@ var game = function() {
 				sheet: "sobreFly",
 				vx: -450,
 				x: 250,
-				y: 500,
-				gravity: 0
+				y: 500
 			});
 			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
