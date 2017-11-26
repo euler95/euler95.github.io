@@ -292,8 +292,6 @@ var game = function() {
 				sprite: 'sobre anim',
 				sheet: "sobreFly",
 				vx: -450,
-				x: 250,
-				y: 500,
 				gravity:0
 			});
 			this.add('2d, animation, defaultEnemy');
@@ -329,8 +327,6 @@ var game = function() {
 				sprite: 'sobre2 anim',
 				sheet: "sobre2Fly",
 				vx: -450,
-				x: 250,
-				y: 500,
 				gravity:0
 			});
 			this.add('2d, animation, defaultEnemy');
