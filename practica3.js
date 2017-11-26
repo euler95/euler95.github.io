@@ -18,7 +18,7 @@ var game = function() {
 	
 	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
 			"nigga.png", "nigga.json","white.png","white.json","pardillos.png","pardillos.json",
-			"unicornio.png","unicornio.json","sobre.png","sobre.json",
+			"unicornio.png","unicornio.json","sobre.png","sobre.json","xen.png",
 				"bloopa.json","goomba.png","goomba.json", "princess.png", 
 					"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("mario_small.png","mario_small.json");
@@ -306,6 +306,23 @@ var game = function() {
 		fly: { frames: [0, 1, 2], rate: 1/4}
 	});
 	
+	//------------Xen
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Xen",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super( {
+				asset:"xen.png",
+				x: 250,
+				y: 500,
+			});
+			this.add('2d, defaultEnemy');
+			this.on("bump.bottom", this, "kill");
+		},
+	});
+	
+	
 	//------------COIN
 	//-----------------------------------------------------
 	//-----------------------------------------------------
@@ -441,7 +458,7 @@ var game = function() {
 		console.log("version animacion lenta");
 		var unicornio = stage.insert(new Q.Unicornio());
 		stage.insert(new Q.Blanco({y:400,x:2000,vx:-250}));
-		stage.insert(new Q.Sobre({y:400,x:1500}));
+		stage.insert(new Q.Xen({y:400,x:1500}));
 		stage.insert(new Q.Negro({y:400,x:4000,vx:-200}));
 		stage.insert(new Q.Pardillos({y:400,x:5000,vx:0}));
 		var peach = stage.insert(new Q.Peach());
