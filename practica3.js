@@ -315,7 +315,7 @@ var game = function() {
 			// Listen for hit event and call the collision method
 			this._super( {
 				sprite: 'xen anim',
-				sheet: "xen"
+				sheet: "xen	"
 			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
 		},
@@ -544,7 +544,7 @@ var game = function() {
 		// Create a new scene called level 1
 	Q.scene('level1', function(stage) {
 		Q.stageTMX("wynot.tmx", stage);
-		console.log("version animacion lenta");
+		console.log("xen");
 		var unicornio = stage.insert(new Q.Unicornio());
 		stage.insert(new Q.Silla({y:400,x:2500}));
 		stage.insert(new Q.Miri({y:400,x:3500}));
