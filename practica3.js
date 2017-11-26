@@ -584,8 +584,8 @@ var game = function() {
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
 		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "gameOver.png" })); 
-		var button1 = box.insert(new Q.UI.Button({ x: 0.4*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
-		var button2 = box.insert(new Q.UI.Button({ x: 0.6*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
+		var button1 = box.insert(new Q.UI.Button({ x: 0.45*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
+		var button2 = box.insert(new Q.UI.Button({ x: 0.55*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
 		button1.on("click", init2);
 		button2.on("click", mostrarcodigo1);
 		document.addEventListener("keyup", listener);
@@ -600,8 +600,8 @@ var game = function() {
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
 		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "gameOver.png" })); 
-		var button1 = box.insert(new Q.UI.Button({ x: 0.4*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
-		var button2 = box.insert(new Q.UI.Button({ x: 0.6*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
+		var button1 = box.insert(new Q.UI.Button({ x: 0.45*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
+		var button2 = box.insert(new Q.UI.Button({ x: 0.55*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
 		button1.on("click", init2);
 		button2.on("click", mostrarcodigo2);
 		document.addEventListener("keyup", listener);
