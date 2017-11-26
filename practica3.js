@@ -736,10 +736,10 @@ var game = function() {
 		
 		Q.clearStages();
 		document.removeEventListener("keyup", listener);
-		currentLevel = 1;
+		currentLevel = 2;//cambiar
 		lost = false;
 		Q.state.set({coins: 0, lives: 3});
-		Q.stageScene('level2');
+		Q.stageScene('level2');//cambiar
 		Q.stageScene('HUD', 1);
 	}
 
@@ -776,6 +776,7 @@ var game = function() {
 		stage.insert(new Q.Water({y:400,x:3050}));
 		stage.insert(new Q.Broken({y:400,x:3700}));
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:4800}));},7000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:5200}));},7000);
 		stage.insert(new Q.Pixar({y:400,x:8500}));
 		stage.insert(new Q.Sobre2({y:400,x:9500}));
 		stage.insert(new Q.Pizarra({y:400,x:10500}));
