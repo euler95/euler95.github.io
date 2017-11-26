@@ -297,7 +297,7 @@ var game = function() {
 				gravity:0
 			});
 			this.add('2d, animation, defaultEnemy');
-			this.on("bump.left", this, "bounce");
+			this.on("bump.left, bump.bottom", this, "bounce");
 		},
 
 		step: function(dt) {
@@ -318,6 +318,7 @@ var game = function() {
 		fly: { frames: [0, 1, 2], rate: 1/4}
 	});
 	
+	
 	//------------SOBRE2
 	//-----------------------------------------------------
 	//-----------------------------------------------------
@@ -333,7 +334,7 @@ var game = function() {
 				gravity:0
 			});
 			this.add('2d, animation, defaultEnemy');
-			this.on("bump.left", this, "bounce");
+			this.on("bump.left, bump.bottom", this, "bounce");
 		},
 
 		step: function(dt) {
@@ -776,7 +777,7 @@ var game = function() {
 		stage.insert(new Q.Water({y:400,x:3050}));
 		stage.insert(new Q.Broken({y:400,x:3700}));
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:4800}));},7000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:4800}));},8000);
+		setTimeout(function(){stage.insert(new Q.Sobre({y:500,x:5300}));},9000);
 		stage.insert(new Q.Pixar({y:400,x:8500}));
 		stage.insert(new Q.Sobre2({y:400,x:9500}));
 		stage.insert(new Q.Pizarra({y:400,x:10500}));
