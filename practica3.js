@@ -69,7 +69,9 @@ var game = function() {
 			this.p.dead = true;
 			var self = this;
 			lost = true;
-			Q.stageScene("endGame", 1, {label: "GAME OVER"});
+			Q.clearStages();
+			document.removeEventListener("keyup", listener);
+			Q.stageScene('gameover'+currentLevel);
 		}
 	  },
 	  
@@ -99,7 +101,10 @@ var game = function() {
 			collision.obj.del('platformerControls');
 			collision.obj.p.vx=0;
 			levelwin = true;
-			Q.stageScene("endGame", 1, {label: "You win this time..."});
+			currentLevel=2;
+			Q.clearStages();
+			document.removeEventListener("keyup", listener);
+			Q.stageScene('nextLevel');
 		}
 	  }
 	  
@@ -523,44 +528,6 @@ var game = function() {
 		Q.stageScene("mainTitle");
 	});
 	
-	Q.scene('endGame',function(stage) {
-		var box = stage.insert(new Q.UI.Container({
-			x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
-		}));
-
-		if(levelwin){	
-			var button = box.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC", label: "Next Level" })); 
-			button.on("click",function() {
-				if(currentLevel<=2)	
-					currentLevel++;
-				levelwin = false;
-				Q.clearStages();
-				Q.stageScene('level'+currentLevel);
-			});
-		}else{ //Unicornio dies
-			if(!lost){ //lives >= 0
-				var button = box.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC", label: "Play Again" }));
-				button.on("click",function() {
-					console.log(currentLevel);
-					Q.clearStages();
-					levelwin = false;
-					Q.stageScene('level'+currentLevel);
-				});
-			}
-		}
-		var button2 = box.insert(new Q.UI.Button({ x: 0, y: 60, fill: "#CCCCCC",
-											   label: "Main menu" }));  
-												
-		var label = box.insert(new Q.UI.Text({cx:button2.width/2, y: -10 - button2.p.h, 
-											label: stage.options.label }));
-		button2.on("click",function() {
-			Q.clearStages();
-			Q.stageScene('mainTitle');
-			
-		});
-		box.fit(20);
-	});
-	
 
 	Q.scene('mainTitle', function(stage) {
 		inMenu=true;
@@ -610,11 +577,6 @@ var game = function() {
 		
 	});
 	
-	function go1(){
-		Q.clearStages();
-		document.removeEventListener("keyup", listener);
-		Q.stageScene('gameover1');
-	}
 	
 	Q.scene('gameover1', function(stage) {
 		inMenu=true;
@@ -622,7 +584,6 @@ var game = function() {
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
 		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro2.png" })); 
-		button.on("click", init2);
 		var button1 = box.insert(new Q.UI.Button({ x: 0.25*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
 		var button2 = box.insert(new Q.UI.Button({ x: 0.75*Q.width/2, y: 0.75*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
 		button1.on("click", init2);
@@ -632,11 +593,6 @@ var game = function() {
 		
 	});
 	
-	function go2(){
-		Q.clearStages();
-		document.removeEventListener("keyup", listener);
-		Q.stageScene('gameover2');
-	}
 	
 	Q.scene('gameover2', function(stage) {
 		inMenu=true;
