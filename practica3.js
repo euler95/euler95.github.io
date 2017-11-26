@@ -12,21 +12,13 @@ var game = function() {
 	var currentLevel = 1;
 	var lost = false;
 	
-	Q.state.set({coins: 0, lives: 3});
-	Q.state.on("change.coins, change.lives", function(){Q.stageScene("HUD", 1, {label: "Lives: "+Q.state.get("lives")+"	Coins: "+Q.state.get("coins")});});
 	
-	
-	Q.load(["mario_small.png","mario_small.json","bloopa.png", "mainTitle.png",
-			"nigga.png", "nigga.json","white.png","white.json","pardillos.png","pardillos.json",
+	Q.load([ "mainTitle.png", "nigga.png", "nigga.json","white.png","white.json","pardillos.png","pardillos.json",
 			"trump.png","water.png","broken.png","sobre2.png","sobre2.json","pixar.png","pizarra.png","bryan.png","wtf.png", "martina.png",
-			"unicornio.png","unicornio.json","sobre.png","sobre.json","xen.png", "puerta.png",
+			"unicornio.png","unicornio.json","sobre.png","sobre.json","xen.png", "puerta.png","nextLevel.png",
 			"tony.png","silla.png","results.png","miri.png","dave.png", "barricada.png",
-				"bloopa.json","goomba.png","goomba.json", "princess.png", "intro1.png", "intro2.png",
-					"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
-		Q.compileSheets("mario_small.png","mario_small.json");
-		Q.compileSheets("bloopa.png","bloopa.json");
-		Q.compileSheets("goomba.png","goomba.json");
-		Q.compileSheets("coin.png", "coin.json");
+			"intro1.png", "intro2.png", "tryAgain.png", "getCode.png","gameOver.png",
+			"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("sobre.png", "sobre.json");
 		Q.compileSheets("sobre2.png", "sobre2.json");
 		Q.compileSheets("nigga.png", "nigga.json");
@@ -76,14 +68,8 @@ var game = function() {
 			this.play("die");
 			this.p.dead = true;
 			var self = this;
-			Q.state.inc("lives", -1);
-			if(Q.state.get("lives")<0){
-				lost = true;
-				Q.stageScene("endGame", 1, {label: "GAME OVER"});
-			}
-			else{
-				Q.stageScene("endGame", 1, {label: "You died"});
-			}
+			lost = true;
+			Q.stageScene("endGame", 1, {label: "GAME OVER"});
 		}
 	  },
 	  
@@ -149,45 +135,6 @@ var game = function() {
 		}
 	});
 	
-	//------------BLOOPA
-	//-----------------------------------------------------
-	//-----------------------------------------------------
-	Q.Sprite.extend("Bloopa",{
-		init: function(p) {
-			// Listen for hit event and call the collision method
-			this._super(p, {
-				sprite: 'bloopa anim',
-				sheet: "bloopa",
-				x: 350,
-				y: 500,
-				vx: 75,
-				vy: -300,
-				gravity: 0.4
-			});
-			this.add('2d, animation, aiBounce, defaultEnemy');
-			this.on("bump.bottom", this, "jump");
-		},
-		
-		jump: function(collision) {
-			this.kill(collision);
-			this.p.vy = -300;
-			this.play("jump");
-			var self = this;
-		},
-
-		step: function(dt) {
-		// Tell the stage to run collisions on this sprite
-			if(this.p.y > 600){
-				this.destroy();
-			}
-		}
-	});
-	
-	Q.animations('bloopa anim', {
-		walk: { frames: [0], rate: 1},
-		jump: { frames: [1], next: "walk", rate: 1/8},
-		die: { frames: [2], rate: 1}
-	});
 
 	
 	//------------Negro
@@ -343,7 +290,7 @@ var game = function() {
 		
 		bounce: function(collision) {
 			this.kill(collision);
-			//this.destroy();
+			this.destroy();
 		}
 	});
 	
@@ -570,51 +517,7 @@ var game = function() {
 			this.add('2d, animation, aiBounce, defaultEnemy');
 			this.on("bump.left", this, "kill");
 		},
-	});
-	
-	
-	
-	
-	//------------COIN
-	//-----------------------------------------------------
-	//-----------------------------------------------------
-	Q.Sprite.extend("Coin",{
-		init: function(p) {
-			// Listen for hit event and call the collision method
-			this._super(p, {
-				sprite: 'coin anim',
-				sheet: 'coin',
-				catched: false,
-				sensor: true
-			});
-			this.add('animation, tween');
-			this.on("hit", this, "getCoin");
-		},
-		
-		getCoin: function(collision) {
-			if(collision.obj.isA("Unicornio") && !this.p.catched) {
-				Q.audio.stop('coin.mp3');
-				Q.audio.play('coin.mp3');
-				this.animate({x: this.p.x, y: this.p.y-100, opacity: 0}, 1, Q.Easing.Quadratic.Out);
-				var self = this;
-				setTimeout(function(){self.destroy()}, 1200);
-				Q.state.inc("coins", 1);
-				this.p.catched = true;
-			}
-		},
-
-		step: function(dt) {
-		// Tell the stage to run collisions on this sprite
-		//this.stage.collide(this);
-			this.play("shining");
-		}
-	});
-	
-	Q.animations('coin anim', {
-		shining: { frames: [0, 1, 2], rate: 1/5}
-	});
-	
-	
+	});	
 
 	Q.loadTMX("level1.tmx, sprites.json, level2.tmx, wynot.tmx, wynot2.tmx", function() {
 		Q.stageScene("mainTitle");
@@ -633,7 +536,6 @@ var game = function() {
 				levelwin = false;
 				Q.clearStages();
 				Q.stageScene('level'+currentLevel);
-				Q.stageScene('HUD', 1);
 			});
 		}else{ //Unicornio dies
 			if(!lost){ //lives >= 0
@@ -642,9 +544,7 @@ var game = function() {
 					console.log(currentLevel);
 					Q.clearStages();
 					levelwin = false;
-					Q.state.set({coins: 0});
 					Q.stageScene('level'+currentLevel);
-					Q.stageScene('HUD', 1);
 				});
 			}
 		}
@@ -655,17 +555,12 @@ var game = function() {
 											label: stage.options.label }));
 		button2.on("click",function() {
 			Q.clearStages();
-			Q.state.set({coins: 0, lives: 3});
 			Q.stageScene('mainTitle');
 			
 		});
 		box.fit(20);
 	});
 	
-	Q.scene('HUD',function(stage) {
-		var label = stage.insert(new Q.UI.Text({x:150, y: 20, label: "Lives: "+Q.state.get("lives")+"	Coins: "+Q.state.get("coins")}));
-		console.log(Q.state.get("coins"));
-	});
 
 	Q.scene('mainTitle', function(stage) {
 		inMenu=true;
@@ -679,6 +574,12 @@ var game = function() {
 		
 	});
 	
+	function init0(){	
+		Q.clearStages();
+		document.removeEventListener("keyup", listener);
+		Q.stageScene('intro1');
+	}
+	
 	Q.scene('intro1', function(stage) {
 		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
@@ -691,6 +592,12 @@ var game = function() {
 		
 	});
 	
+	function init1(){
+		Q.clearStages();
+		document.removeEventListener("keyup", listener);
+		Q.stageScene('intro2');
+	}
+	
 	Q.scene('intro2', function(stage) {
 		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
@@ -698,6 +605,103 @@ var game = function() {
 		}));
 		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro2.png" })); 
 		button.on("click", init2);
+		document.addEventListener("keyup", listener);
+		document.body.addEventListener("touchstart", touch);
+		
+	});
+	
+	function go1(){
+		Q.clearStages();
+		document.removeEventListener("keyup", listener);
+		Q.stageScene('gameover1');
+	}
+	
+	Q.scene('gameover1', function(stage) {
+		inMenu=true;
+		var box = stage.insert(new Q.UI.Container({
+			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
+		}));
+		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro2.png" })); 
+		button.on("click", init2);
+		var button1 = box.insert(new Q.UI.Button({ x: 0.25*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
+		var button2 = box.insert(new Q.UI.Button({ x: 0.75*Q.width/2, y: 0.75*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
+		button1.on("click", init2);
+		button2.on("click", mostrarcodigo1);
+		document.addEventListener("keyup", listener);
+		document.body.addEventListener("touchstart", touch);
+		
+	});
+	
+	function go2(){
+		Q.clearStages();
+		document.removeEventListener("keyup", listener);
+		Q.stageScene('gameover2');
+	}
+	
+	Q.scene('gameover2', function(stage) {
+		inMenu=true;
+		var box = stage.insert(new Q.UI.Container({
+			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
+		}));
+		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro2.png" })); 
+		var button1 = box.insert(new Q.UI.Button({ x: 0.25*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
+		var button2 = box.insert(new Q.UI.Button({ x: 0.75*Q.width/2, y: 0.75*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
+		button1.on("click", init2);
+		button2.on("click", mostrarcodigo2);
+		document.addEventListener("keyup", listener);
+		document.body.addEventListener("touchstart", touch);
+		
+	});
+	
+	function mostrarcodigo1(){
+		Q.clearStages();
+		document.removeEventListener("keyup", listener);
+		Q.stageScene('codigo1');
+	}
+	
+	Q.scene('codigo1', function(stage) {
+		inMenu=true;
+		var box = stage.insert(new Q.UI.Container({
+			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
+		}));
+		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro2.png" })); 
+		button.on("click", init2);
+		document.addEventListener("keyup", listener);
+		document.body.addEventListener("touchstart", touch);
+		
+	});
+	
+	function mostrarcodigo2(){
+		Q.clearStages();
+		document.removeEventListener("keyup", listener);
+		Q.stageScene('codigo2');
+	}
+	
+	Q.scene('codigo2', function(stage) {
+		inMenu=true;
+		var box = stage.insert(new Q.UI.Container({
+			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
+		}));
+		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro2.png" })); 
+		button.on("click", init2);
+		document.addEventListener("keyup", listener);
+		document.body.addEventListener("touchstart", touch);
+		
+	});
+	
+	function next(){
+		Q.clearStages();
+		document.removeEventListener("keyup", listener);
+		Q.stageScene('nextLevel');
+	}
+	
+	Q.scene('nextLevel', function(stage) {
+		inMenu=true;
+		var box = stage.insert(new Q.UI.Container({
+			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
+		}));
+		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "nextLevel.png" })); 
+		button.on("click", init3);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
 		
@@ -715,29 +719,13 @@ var game = function() {
 	};
 	
 	
-	function init0(){
-		
-		Q.clearStages();
-		document.removeEventListener("keyup", listener);
-		Q.stageScene('intro1');
-	}
-	
-	function init1(){
-		
-		Q.clearStages();
-		document.removeEventListener("keyup", listener);
-		Q.stageScene('intro2');
-	}
-	
 	function init2(){
 		
 		Q.clearStages();
 		document.removeEventListener("keyup", listener);
-		currentLevel = 2;//cambiar
+		currentLevel = 1;//cambiar
 		lost = false;
-		Q.state.set({coins: 0, lives: 3});
-		Q.stageScene('level2');//cambiar
-		Q.stageScene('HUD', 1);
+		Q.stageScene('level1');//cambiar
 	}
 
 	// ## Level1 scene
@@ -760,6 +748,18 @@ var game = function() {
 		var peach = stage.insert(new Q.Puerta());
 		stage.add("viewport").follow(unicornio, {x:true, y:false});
 	});
+	
+	
+	function init3(){
+		
+		Q.clearStages();
+		document.removeEventListener("keyup", listener);
+		currentLevel = 1;//cambiar
+		lost = false;
+		Q.stageScene('level2');//cambiar
+	}
+	
+	
 	// ## Level2 scene
 		// Create a new scene called level 2
 	Q.scene('level2', function(stage) {

@@ -6,6 +6,12 @@
  <tileset firstgid="50" name="oficina" tilewidth="34" tileheight="34" tilecount="3852" columns="214">
   <image source="../images/oficina.png" width="7282" height="612"/>
  </tileset>
+ <tileset firstgid="3902" name="Recurso 75" tilewidth="34" tileheight="34" tilecount="55" columns="11">
+  <image source="../images/Recurso 75.png" width="381" height="172"/>
+ </tileset>
+ <tileset firstgid="3957" name="Recurso 76" tilewidth="34" tileheight="34" tilecount="55" columns="11">
+  <image source="../images/Recurso 76.png" width="381" height="172"/>
+ </tileset>
  <imagelayer name="Capa de Imagen 1">
   <image source="../images/oficina.png" width="7282" height="612"/>
  </imagelayer>
@@ -4518,13 +4524,13 @@
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
+   <tile gid="3926"/>
+   <tile gid="3927"/>
+   <tile gid="3928"/>
+   <tile gid="3929"/>
+   <tile gid="3930"/>
+   <tile gid="3986"/>
+   <tile gid="3987"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
