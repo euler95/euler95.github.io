@@ -314,9 +314,7 @@ var game = function() {
 		init: function(p) {
 			// Listen for hit event and call the collision method
 			this._super( {
-				asset:"xen.png",
-				x: 250,
-				y: 500
+				asset:"xen.png"
 			});
 			this.add('2d, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
@@ -330,9 +328,7 @@ var game = function() {
 		init: function(p) {
 			// Listen for hit event and call the collision method
 			this._super( {
-				asset:"tony.png",
-				x: 250,
-				y: 500
+				asset:"tony.png"
 			});
 			this.add('2d, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
@@ -346,9 +342,7 @@ var game = function() {
 		init: function(p) {
 			// Listen for hit event and call the collision method
 			this._super( {
-				asset:"silla.png",
-				x: 250,
-				y: 500
+				asset:"silla.png"
 			});
 			this.add('2d, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
@@ -362,9 +356,7 @@ var game = function() {
 		init: function(p) {
 			// Listen for hit event and call the collision method
 			this._super( {
-				asset:"results.png",
-				x: 250,
-				y: 500
+				asset:"results.png"
 			});
 			this.add('2d, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
@@ -378,9 +370,7 @@ var game = function() {
 		init: function(p) {
 			// Listen for hit event and call the collision method
 			this._super( {
-				asset:"miri.png",
-				x: 250,
-				y: 500
+				asset:"miri.png"
 			});
 			this.add('2d, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
@@ -394,9 +384,7 @@ var game = function() {
 		init: function(p) {
 			// Listen for hit event and call the collision method
 			this._super( {
-				asset:"dave.png",
-				x: 250,
-				y: 500
+				asset:"dave.png"
 			});
 			this.add('2d, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
@@ -410,9 +398,7 @@ var game = function() {
 		init: function(p) {
 			// Listen for hit event and call the collision method
 			this._super( {
-				asset:"barricada.png",
-				x: 250,
-				y: 500
+				asset:"barricada.png"
 			});
 			this.add('2d, defaultEnemy');
 			this.on("bump.bottom", this, "kill");
