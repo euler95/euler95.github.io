@@ -20,7 +20,7 @@ var game = function() {
 			"nigga.png", "nigga.json","white.png","white.json","pardillos.png","pardillos.json",
 			"unicornio.png","unicornio.json","sobre.png","sobre.json","xen.png", "puerta.png",
 			"tony.png","silla.png","results.png","miri.png","dave.png", "barricada.png",
-				"bloopa.json","goomba.png","goomba.json", "princess.png", 
+				"bloopa.json","goomba.png","goomba.json", "princess.png", "intro1.png", "intro2.png",
 					"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("mario_small.png","mario_small.json");
 		Q.compileSheets("bloopa.png","bloopa.json");
@@ -508,12 +508,34 @@ var game = function() {
 	Q.scene('mainTitle', function(stage) {
 		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
-			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(0,0,0,1)"
+			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
+		var button = box.insert(new Q.UI.Button({ x: Q.width, y: Q.height, fill: "#CCCCCC", asset: "mainTitle.png" })); 
+		button.on("click", init0);
+		document.addEventListener("keyup", listener);
+		document.body.addEventListener("touchstart", touch);
 		
-		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "mainTitle.png" })); 
+	});
+	
+	Q.scene('intro1', function(stage) {
+		inMenu=true;
+		var box = stage.insert(new Q.UI.Container({
+			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
+		}));
+		var button = box.insert(new Q.UI.Button({ x: Q.width, y: Q.height, fill: "#CCCCCC", asset: "intro1.png" })); 
+		button.on("click", init1);
+		document.addEventListener("keyup", listener);
+		document.body.addEventListener("touchstart", touch);
 		
-		button.on("click", init);
+	});
+	
+	Q.scene('intro2', function(stage) {
+		inMenu=true;
+		var box = stage.insert(new Q.UI.Container({
+			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
+		}));
+		var button = box.insert(new Q.UI.Button({ x: Q.width, y: Q.height, fill: "#CCCCCC", asset: "intro2.png" })); 
+		button.on("click", init2);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
 		
@@ -530,7 +552,22 @@ var game = function() {
 		if(evt.which==13) init();
 	};
 	
-	function init(){
+	
+	function init0(){
+		
+		Q.clearStages();
+		document.removeEventListener("keyup", listener);
+		Q.stageScene('intro1');
+	}
+	
+	function init1(){
+		
+		Q.clearStages();
+		document.removeEventListener("keyup", listener);
+		Q.stageScene('intro2');
+	}
+	
+	function init2(){
 		
 		Q.clearStages();
 		document.removeEventListener("keyup", listener);
