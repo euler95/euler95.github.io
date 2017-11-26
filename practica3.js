@@ -94,10 +94,10 @@ var game = function() {
 		die: { frames: [3], rate: 1/5 }
 	});
 	
-	//------------PRINCESS
+	//------------Puerta
 	//-----------------------------------------------------
 	//-----------------------------------------------------
-	Q.Sprite.extend("Peach", {
+	Q.Sprite.extend("Puerta", {
 	  
 	  init: function(p) {
 		this._super( p,{
@@ -760,7 +760,7 @@ var game = function() {
 		stage.insert(new Q.Blanco({y:400,x:11500}));
 		stage.insert(new Q.Negro({y:400,x:12500}));
 		stage.insert(new Q.Silla({y:400,x:13500}));
-		var peach = stage.insert(new Q.Peach());
+		var peach = stage.insert(new Q.Puerta());
 		stage.add("viewport").follow(unicornio, {x:true, y:false});
 	});
 	// ## Level2 scene
@@ -787,12 +787,12 @@ var game = function() {
 		stage.insert(new Q.Wtf({y:400,x:16500}));
 		stage.insert(new Q.Sobre({y:400,x:17200}));
 		stage.insert(new Q.Sobre2({y:400,x:18500}));
-		stage.insert(new Q.Sobre({y:400,x:19500}));
+		stage.insert(new Q.Sobre({y:400,x:19300}));
 		stage.insert(new Q.Sobre2({y:400,x:20500}));
 		stage.insert(new Q.Sobre2({y:400,x:21500}));
 		stage.insert(new Q.Silla({y:400,x:22500}));
-		
-		var peach = stage.insert(new Q.Peach());
+		stage.insert(new Q.Silla({y:400,x:22500}));
+		stage.insert(new Q.Puerta({y:400,x:19500}));
 		
 		stage.add("viewport").follow(unicornio, {x:true, y:false});
 	});
