@@ -440,7 +440,7 @@ var game = function() {
 		console.log("version animacion lenta");
 		var unicornio = stage.insert(new Q.Unicornio());
 		stage.insert(new Q.Blanco({y:400,x:2000,vx:-250}));
-		stage.insert(new Q.Sobre({y:400,x:1500}));
+		stage.insert(new Q.Sobre({y:400,x:400}));
 		stage.insert(new Q.Negro({y:400,x:4000,vx:-200}));
 		stage.insert(new Q.Pardillos({y:400,x:5000,vx:0}));
 		var peach = stage.insert(new Q.Peach());
