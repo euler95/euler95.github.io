@@ -45,7 +45,7 @@ var game = function() {
 			sheet: "unicornioRun",
 			x: 150,
 			y: 230,
-			jumpSpeed: -650,
+			jumpSpeed: -800,
 			dead: false
 		});
 		this.add('2d, platformerControls, animation');
@@ -67,7 +67,7 @@ var game = function() {
 		if(!levelwin && !this.p.dead)
 			this.del('platformerControls');
 			this.p.vx = 0;
-			this.p.vy=-500;
+			this.p.vy=-300;
 			this.play("die");
 			this.p.dead = true;
 			var self = this;
