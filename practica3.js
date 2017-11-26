@@ -46,6 +46,7 @@ var game = function() {
 			x: 150,
 			y: 230,
 			jumpSpeed: -800,
+			gravity: 2,
 			dead: false
 		});
 		this.add('2d, platformerControls, animation');
