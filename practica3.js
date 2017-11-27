@@ -828,7 +828,7 @@ var game = function() {
 		stage.insert(new Q.Water({y:400,x:3050}));
 		stage.insert(new Q.Broken({y:400,x:3700}));
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:4800}));},7000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:5300}));},8500);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:5300}));},8500);
 		stage.insert(new Q.Pixar({y:400,x:5800}));
 		//stage.insert(new Q.Sobre2({y:400,x:9500}));
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:6900}));},11000);
@@ -836,9 +836,9 @@ var game = function() {
 		stage.insert(new Q.Martina({y:400,x:7600}));
 		stage.insert(new Q.Bryan({y:400,x:8400}));
 		//stage.insert(new Q.Negro({y:400,x:13500}));
-		setTimeout(function(){stage.insert(new Q.Negro({y:400,x:10500}));},14000);
+		setTimeout(function(){stage.insert(new Q.Negro({y:300,x:10500}));},14000);
 		//stage.insert(new Q.Blanco({y:400,x:14500}));
-		setTimeout(function(){stage.insert(new Q.Blanco({y:400,x:10500}));},17000);
+		setTimeout(function(){stage.insert(new Q.Blanco({y:300,x:10500}));},17000);
 		stage.insert(new Q.Pardillos({y:400,x:11500}));
 		stage.insert(new Q.Wtf({y:400,x:12500}));
 		/*stage.insert(new Q.Sobre({y:400,x:17200}));
@@ -848,10 +848,10 @@ var game = function() {
 		stage.insert(new Q.Sobre2({y:400,x:21500}));
 		*/
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},22000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:18500}));},24000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},24000);
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},26000);
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},28000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:18500}));},30000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},30000);
 		
 		stage.insert(new Q.Jefe({y:400,x:19000}));
 		stage.insert(new Q.Trofeo({y:400,x:19500}));
