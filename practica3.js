@@ -664,7 +664,7 @@ var game = function() {
 		
 		var button1 = box.insert(new Q.UI.Button({ x: 0.5*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
 		var button2 = box.insert(new Q.UI.Button({ x: 0.5*Q.width, y: 0.85*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
-		button1.on("click", init2);
+		button1.on("click", tryAgain);
 		button2.on("click", mostrarcodigo1);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
@@ -682,7 +682,7 @@ var game = function() {
 		
 		var button1 = box.insert(new Q.UI.Button({ x: 0.5*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
 		var button2 = box.insert(new Q.UI.Button({ x: 0.5*Q.width, y: 0.85*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
-		button1.on("click", init2);
+		button1.on("click", tryAgain);
 		button2.on("click", mostrarcodigo2);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
@@ -770,7 +770,10 @@ var game = function() {
 	var listener = function (evt) {
 		if(evt.which==13) init();
 	};
-	
+	function tryAgain(){
+		Q.audio.play("wynot.mp3",{ loop: true });
+		init2();
+	}
 	
 	function init2(){
 		Q.clearStages();
