@@ -583,8 +583,11 @@ var game = function() {
 	Q.scene('gameover1', function(stage) {
 		inMenu=true;
 		
-		var box = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "gameOver.png"})); 
-		box.p.scale = scaleToQuintus(box.p.w, box.p.h, true);
+		var box = stage.insert(new Q.UI.Container({
+			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
+		}));
+		var fondo = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "gameOver.png"})); 
+		fondo.p.scale = scaleToQuintus(fondo.p.w, fondo.p.h, true);
 		
 		var button1 = box.insert(new Q.UI.Button({ x: 0.43*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
 		var button2 = box.insert(new Q.UI.Button({ x: 0.57*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
@@ -598,8 +601,11 @@ var game = function() {
 	
 	Q.scene('gameover2', function(stage) {
 		inMenu=true;
-		var box = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "gameOver.png"})); 
-		box.p.scale = scaleToQuintus(box.p.w, box.p.h, true);
+		var box = stage.insert(new Q.UI.Container({
+			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
+		}));
+		var fondo = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "gameOver.png"})); 
+		fondo.p.scale = scaleToQuintus(fondo.p.w, fondo.p.h, true);
 		
 		var button1 = box.insert(new Q.UI.Button({ x: 0.43*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
 		var button2 = box.insert(new Q.UI.Button({ x: 0.57*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
