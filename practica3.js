@@ -594,8 +594,8 @@ var game = function() {
 		var fondo = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "gameOver.png"})); 
 		fondo.p.scale = scaleToQuintus(fondo.p.w, fondo.p.h, true);
 		
-		var button1 = box.insert(new Q.UI.Button({ x: 0.43*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
-		var button2 = box.insert(new Q.UI.Button({ x: 0.57*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
+		var button1 = box.insert(new Q.UI.Button({ x: 0.5*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
+		var button2 = box.insert(new Q.UI.Button({ x: 0.5*Q.width, y: 0.9*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
 		button1.on("click", init2);
 		button2.on("click", mostrarcodigo1);
 		document.addEventListener("keyup", listener);
