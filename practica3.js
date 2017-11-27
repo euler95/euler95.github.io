@@ -17,10 +17,11 @@ var game = function() {
 			"trump.png","water.png","broken.png","sobre2.png","sobre2.json","pixar.png","pizarra.png","bryan.png","wtf.png", "martina.png",
 			"unicornio.png","unicornio.json","sobre.png","sobre.json","xen.png", "puerta.png","nextLevel.png",
 			"tony.png","silla.png","results.png","miri.png","dave.png", "barricada.png",
-			"codigo1.png","codigo2.png","codigo3.png", "trofeo.png", "trofeo.json",
+			"codigo1.png","codigo2.png","codigo3.png", "trofeo.png", "trofeo.json","jefe.json","jefe.png",
 			"intro1.png", "intro2.png", "tryAgain.png", "getCode.png","gameOver.png",
 			"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("sobre.png", "sobre.json");
+		Q.compileSheets("jefe.png", "jefe.json");
 		Q.compileSheets("trofeo.png", "trofeo.json");
 		Q.compileSheets("sobre2.png", "sobre2.json");
 		Q.compileSheets("nigga.png", "nigga.json");
@@ -147,6 +148,37 @@ var game = function() {
 	Q.animations('trofeo anim', {
 		shine: { frames: [0, 1, 2], rate: 1/4}
 	});
+	
+	//------------Jefe
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Jefe",{
+		init: function(p) {
+			// Listen for hit event and call the collision method
+			this._super(p, {
+				sprite: 'jefe anim',
+				sheet: "jefe",
+				x: 250,
+				y: 500
+			});
+			this.add('2d, animation');
+			this.on("bump.left", this, "kill");
+		},
+
+		step: function(dt) {
+		// Tell the stage to run collisions on this sprite
+			this.play("walk");
+			if(this.p.y > 600){
+				this.destroy();
+			}
+		}
+	});
+	
+	Q.animations('jefe anim', {
+		walk: { frames: [0, 2 ,4, 2], rate: 1/4}
+	});
+	
+	
 	
 	//------------DEFAULT ENEMY
 	//-----------------------------------------------------
@@ -774,7 +806,7 @@ var game = function() {
 		
 		Q.clearStages();
 		document.removeEventListener("keyup", listener);
-		currentLevel = 1;//cambiar
+		currentLevel = 2;//cambiar
 		lost = false;
 		Q.stageScene('level2');//cambiar
 	}
@@ -818,7 +850,7 @@ var game = function() {
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},28000);
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:18500}));},30000);
 		
-		stage.insert(new Q.Silla({y:400,x:19000}));
+		stage.insert(new Q.Jefe({y:400,x:19000}));
 		stage.insert(new Q.Trofeo({y:400,x:19500}));
 		
 		stage.add("viewport").follow(unicornio, {x:true, y:false});
