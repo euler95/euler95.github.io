@@ -61,7 +61,7 @@ var game = function() {
 	  },
 	  
 	  death: function(){
-		if(!levelwin && !this.p.dead){
+		if(!this.p.dead){
 			Q.audio.stop();
 			Q.audio.play("music_die.mp3");
 			this.del('platformerControls');
@@ -820,7 +820,7 @@ var game = function() {
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:18500}));},30000);
 		
 		stage.insert(new Q.Silla({y:400,x:19000}));
-		stage.insert(new Q.Puerta({y:400,x:19500}));
+		stage.insert(new Q.Trofeo({y:400,x:19500}));
 		
 		stage.add("viewport").follow(unicornio, {x:true, y:false});
 	});
