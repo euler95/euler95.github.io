@@ -537,6 +537,7 @@ var game = function() {
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
 		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "mainTitle.png" })); 
+		button.p.scale = scaleToQuintus(button.p.w, button.p.h, true);
 		button.on("click", init0);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
@@ -555,6 +556,7 @@ var game = function() {
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
 		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro1.png" })); 
+		button.p.scale = scaleToQuintus(button.p.w, button.p.h, true);
 		button.on("click", init1);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
@@ -572,7 +574,10 @@ var game = function() {
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
+		
+		
 		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro2.png" })); 
+		button.p.scale = scaleToQuintus(button.p.w, button.p.h, true);
 		button.on("click", init2);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
@@ -625,10 +630,11 @@ var game = function() {
 	Q.scene('codigo1', function(stage) {
 		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
-			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
+			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
-		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro2.png" })); 
-		button.on("click", init2);
+		var fondo = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "gameOver.png"})); 
+		fondo.p.scale = scaleToQuintus(fondo.p.w, fondo.p.h, true);
+		
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
 		
@@ -643,9 +649,11 @@ var game = function() {
 	Q.scene('codigo2', function(stage) {
 		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
-			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
+			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
-		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "intro2.png" })); 
+		var fondo = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "gameOver.png"})); 
+		fondo.p.scale = scaleToQuintus(fondo.p.w, fondo.p.h, true);
+		
 		button.on("click", init2);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
