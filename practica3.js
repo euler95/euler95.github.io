@@ -136,7 +136,6 @@ var game = function() {
 			collision.obj.del('platformerControls');
 			collision.obj.p.vx=0;
 			levelwin = true;
-			currentLevel=2;
 			Q.clearStages();
 			document.removeEventListener("keyup", listener);
 			Q.stageScene('ganar');
