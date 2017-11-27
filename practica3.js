@@ -365,7 +365,7 @@ var game = function() {
 		
 		bounce: function(collision) {
 			this.kill(collision);
-			this.destroy();
+			//this.destroy();
 		}
 	});
 	
