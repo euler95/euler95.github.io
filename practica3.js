@@ -754,6 +754,7 @@ var game = function() {
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
 		var button = box.insert(new Q.UI.Button({ x: Q.width/2, y: Q.height/2, fill: "#CCCCCC", asset: "nextLevel.png" })); 
+		button.p.scale = scaleToQuintus(button.p.w, button.p.h, true);
 		button.on("click", init3);
 		document.addEventListener("keyup", listener);
 		document.body.addEventListener("touchstart", touch);
@@ -828,7 +829,7 @@ var game = function() {
 		stage.insert(new Q.Water({y:400,x:3050}));
 		stage.insert(new Q.Broken({y:400,x:3700}));
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:4800}));},7000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:5300}));},8500);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:5300}));},8500);
 		stage.insert(new Q.Pixar({y:400,x:5800}));
 		//stage.insert(new Q.Sobre2({y:400,x:9500}));
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:6900}));},11000);
@@ -847,9 +848,10 @@ var game = function() {
 		stage.insert(new Q.Sobre2({y:400,x:20500}));
 		stage.insert(new Q.Sobre2({y:400,x:21500}));
 		*/
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},22000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},20000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:18500}));},22000);
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},24000);
-		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},26000);
+		setTimeout(function(){stage.insert(new Q.Sobre2({y:500,x:18500}));},26000);
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},28000);
 		setTimeout(function(){stage.insert(new Q.Sobre2({y:300,x:18500}));},30000);
 		
