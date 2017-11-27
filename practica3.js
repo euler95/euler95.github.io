@@ -17,9 +17,11 @@ var game = function() {
 			"trump.png","water.png","broken.png","sobre2.png","sobre2.json","pixar.png","pizarra.png","bryan.png","wtf.png", "martina.png",
 			"unicornio.png","unicornio.json","sobre.png","sobre.json","xen.png", "puerta.png","nextLevel.png",
 			"tony.png","silla.png","results.png","miri.png","dave.png", "barricada.png",
+			"codigo1.png","codigo2.png","codigo3.png", "trofeo.png", "trofeo.json",
 			"intro1.png", "intro2.png", "tryAgain.png", "getCode.png","gameOver.png",
 			"coin.png", "coin.json","wynot.mp3", "music_main.mp3", "coin.mp3", "music_die.mp3"], function(){
 		Q.compileSheets("sobre.png", "sobre.json");
+		Q.compileSheets("trofeo.png", "trofeo.json");
 		Q.compileSheets("sobre2.png", "sobre2.json");
 		Q.compileSheets("nigga.png", "nigga.json");
 		Q.compileSheets("unicornio.png", "unicornio.json");
@@ -110,6 +112,41 @@ var game = function() {
 		}
 	  }
 	  
+	});
+	
+	//------------TROFEO
+	//-----------------------------------------------------
+	//-----------------------------------------------------
+	Q.Sprite.extend("Trofeo", {
+	  
+	  init: function(p) {
+		this._super( p,{
+			sprite: 'trofeo anim',
+			sheet: "trofeo"
+		});
+		this.add('2d, animation');
+		this.on("bump.left, bump.right, bump.top", this, "win");
+	  },
+	  step: function(dt) {
+		// Tell the stage to run collisions on this sprite
+			this.play("shine");
+		},
+	  win: function(collision){
+		if(collision.obj.isA("Unicornio")){
+			collision.obj.del('platformerControls');
+			collision.obj.p.vx=0;
+			levelwin = true;
+			currentLevel=2;
+			Q.clearStages();
+			document.removeEventListener("keyup", listener);
+			Q.stageScene('ganar');
+		}
+	  }
+	  
+	});
+	
+	Q.animations('trofeo anim', {
+		shine: { frames: [0, 1, 2], rate: 1/4}
 	});
 	
 	//------------DEFAULT ENEMY
@@ -595,7 +632,7 @@ var game = function() {
 		fondo.p.scale = scaleToQuintus(fondo.p.w, fondo.p.h, true);
 		
 		var button1 = box.insert(new Q.UI.Button({ x: 0.5*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
-		var button2 = box.insert(new Q.UI.Button({ x: 0.5*Q.width, y: 0.9*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
+		var button2 = box.insert(new Q.UI.Button({ x: 0.5*Q.width, y: 0.85*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
 		button1.on("click", init2);
 		button2.on("click", mostrarcodigo1);
 		document.addEventListener("keyup", listener);
@@ -612,8 +649,8 @@ var game = function() {
 		var fondo = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "gameOver.png"})); 
 		fondo.p.scale = scaleToQuintus(fondo.p.w, fondo.p.h, true);
 		
-		var button1 = box.insert(new Q.UI.Button({ x: 0.43*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
-		var button2 = box.insert(new Q.UI.Button({ x: 0.57*Q.width, y: 0.70*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
+		var button1 = box.insert(new Q.UI.Button({ x: 0.5*Q.width, y: 0.75*Q.height, fill: "#CCCCCC", asset: "tryAgain.png" })); 
+		var button2 = box.insert(new Q.UI.Button({ x: 0.5*Q.width, y: 0.85*Q.height, fill: "#CCCCCC", asset: "getCode.png" })); 
 		button1.on("click", init2);
 		button2.on("click", mostrarcodigo2);
 		document.addEventListener("keyup", listener);
@@ -632,7 +669,7 @@ var game = function() {
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
-		var fondo = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "gameOver.png"})); 
+		var fondo = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "codigo1.png"})); 
 		fondo.p.scale = scaleToQuintus(fondo.p.w, fondo.p.h, true);
 		
 		document.addEventListener("keyup", listener);
@@ -651,7 +688,7 @@ var game = function() {
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
-		var fondo = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "gameOver.png"})); 
+		var fondo = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "codigo2.png"})); 
 		fondo.p.scale = scaleToQuintus(fondo.p.w, fondo.p.h, true);
 		
 		button.on("click", init2);
@@ -659,6 +696,20 @@ var game = function() {
 		document.body.addEventListener("touchstart", touch);
 		
 	});
+	
+	Q.scene('ganar', function(stage) {
+		inMenu=true;
+		var box = stage.insert(new Q.UI.Container({
+			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
+		}));
+		var fondo = box.insert(new Q.Sprite({x: Q.width/2, y: Q.height/2, asset: "codigo3.png"})); 
+		fondo.p.scale = scaleToQuintus(fondo.p.w, fondo.p.h, true);
+		
+		document.addEventListener("keyup", listener);
+		document.body.addEventListener("touchstart", touch);
+		
+	});
+	
 	
 	function next(){
 		Q.clearStages();
