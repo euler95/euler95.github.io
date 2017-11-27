@@ -1,5 +1,5 @@
 {
-	"unicornioRun":{"sx":2,"sy":0,"tileW":179,"tileH":159,"frames":2},
+	"unicornioRun":{"sx":0,"sy":0,"tileW":183,"tileH":159,"frames":2},
 	"unicornioJump":{"sx":360,"sy":0,"tileW":180,"tileH":159,"frames":1},
 	"unicornoDie":{"sx":540,"sy":0,"tileW":180,"tileH":159,"frames":1}
 }
