@@ -600,7 +600,7 @@ var game = function() {
 	
 
 	Q.scene('mainTitle', function(stage) {
-		inMenu=true;
+		inMenu=0;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
@@ -619,7 +619,7 @@ var game = function() {
 	}
 	
 	Q.scene('intro1', function(stage) {
-		inMenu=true;
+		inMenu=1;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
@@ -638,7 +638,7 @@ var game = function() {
 	}
 	
 	Q.scene('intro2', function(stage) {
-		inMenu=true;
+		inMenu=2;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
@@ -654,7 +654,7 @@ var game = function() {
 	
 	
 	Q.scene('gameover1', function(stage) {
-		inMenu=true;
+		inMenu=2;
 		
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
@@ -673,7 +673,7 @@ var game = function() {
 	
 	
 	Q.scene('gameover2', function(stage) {
-		inMenu=true;
+		inMenu=2;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
@@ -696,7 +696,6 @@ var game = function() {
 	}
 	
 	Q.scene('codigo1', function(stage) {
-		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
@@ -715,7 +714,6 @@ var game = function() {
 	}
 	
 	Q.scene('codigo2', function(stage) {
-		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
@@ -729,7 +727,6 @@ var game = function() {
 	});
 	
 	Q.scene('ganar', function(stage) {
-		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
@@ -749,7 +746,7 @@ var game = function() {
 	}
 	
 	Q.scene('nextLevel', function(stage) {
-		inMenu=true;
+		inMenu=3;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
@@ -762,14 +759,24 @@ var game = function() {
 	});
 	
 	var touch=function(){
-		if(inMenu){
-			init();
-			inMenu=false;
+		if(inMenu!=-1){
+			if(inMenu==0)
+				init0();
+			else if(inMenu==1)
+				init1();
+			else if(inMenu==2){
+				init2();
+				inMenu=-1;
+			}
+			else if(inMenu==3){
+				init3();
+				inMenu=-1;
+			}
 		}
 	}
 	
 	var listener = function (evt) {
-		if(evt.which==13) init();
+		if(evt.which==32) init();
 	};
 	function tryAgain(){
 		Q.audio.play("wynot.mp3",{ loop: true });
