@@ -654,7 +654,7 @@ var game = function() {
 	
 	
 	Q.scene('gameover1', function(stage) {
-		inMenu=2;
+		inMenu=4;
 		
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
@@ -673,7 +673,7 @@ var game = function() {
 	
 	
 	Q.scene('gameover2', function(stage) {
-		inMenu=2;
+		inMenu=5;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
@@ -771,6 +771,14 @@ var game = function() {
 			else if(inMenu==3){
 				init3();
 				inMenu=-1;
+			}
+			else if(inMenu==4){
+				mostrarcodigo1();
+				inMenu=2;
+			}
+			else if(inMenu==5){
+				mostrarcodigo2();
+				inMenu=2;
 			}
 		}
 	}
