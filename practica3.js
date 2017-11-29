@@ -600,7 +600,7 @@ var game = function() {
 	
 
 	Q.scene('mainTitle', function(stage) {
-		inMenu=0;
+		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
@@ -619,7 +619,7 @@ var game = function() {
 	}
 	
 	Q.scene('intro1', function(stage) {
-		inMenu=1;
+		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
@@ -638,7 +638,7 @@ var game = function() {
 	}
 	
 	Q.scene('intro2', function(stage) {
-		inMenu=2;
+		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
@@ -654,7 +654,7 @@ var game = function() {
 	
 	
 	Q.scene('gameover1', function(stage) {
-		inMenu=4;
+		inMenu=true;
 		
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
@@ -673,7 +673,7 @@ var game = function() {
 	
 	
 	Q.scene('gameover2', function(stage) {
-		inMenu=5;
+		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
@@ -696,6 +696,7 @@ var game = function() {
 	}
 	
 	Q.scene('codigo1', function(stage) {
+		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
@@ -714,6 +715,7 @@ var game = function() {
 	}
 	
 	Q.scene('codigo2', function(stage) {
+		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
@@ -727,6 +729,7 @@ var game = function() {
 	});
 	
 	Q.scene('ganar', function(stage) {
+		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2, fill: "rgba(0,0,0,1)"
 		}));
@@ -746,7 +749,7 @@ var game = function() {
 	}
 	
 	Q.scene('nextLevel', function(stage) {
-		inMenu=3;
+		inMenu=true;
 		var box = stage.insert(new Q.UI.Container({
 			cx: Q.height/2, cy: Q.height/2,  fill: "rgba(255,255,255,1)"
 		}));
@@ -780,11 +783,10 @@ var game = function() {
 				mostrarcodigo2();
 				inMenu=2;
 			}
-		}
 	}
 	
 	var listener = function (evt) {
-		if(evt.which==32) init();
+		if(evt.which==13) init();
 	};
 	function tryAgain(){
 		Q.audio.play("wynot.mp3",{ loop: true });
