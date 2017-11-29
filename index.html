@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Quintus Basic Sprite Manipulation Example</title>
+	<title>Wynot Monday</title>
 	<script src='lib/quintus.js'></script>
 	<script src='lib/quintus_scenes.js'></script>
 	<script src='lib/quintus_sprites.js'></script>
@@ -21,7 +21,16 @@
 </head>
 <body>
 	<script type="text/javascript">
-	 window.onload = game;
+	 function zoomOutMobile() {
+	  var viewport = document.querySelector('meta[name="viewport"]');
+	  if ( viewport ) {
+		viewport.content = "initial-scale=0.1";
+		viewport.content = "width=1200";
+	  }
+	}
+	 zoomOutMobile();
 	 </script>
 </body>
+<
+
 </html>
