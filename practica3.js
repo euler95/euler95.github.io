@@ -783,6 +783,7 @@ var game = function() {
 				mostrarcodigo2();
 				inMenu=2;
 			}
+		}
 	}
 	
 	var listener = function (evt) {
