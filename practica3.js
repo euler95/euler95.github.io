@@ -5,7 +5,7 @@ var game = function() {
 	var Q = window.Q = Quintus({ audioSupported: [ 'ogg', 'mp3' ]})
 		 .include("Sprites, Scenes, Input, 2D, TMX, Anim, Touch, UI, Audio")
 		 // Maximize this game to whatever the size of the browser is
-		 .setup({ maximize: true })
+		 .setup({ maximize: false })
 		 // And turn on default input controls and touch input (for UI)
 		 .controls().touch().enableSound();
 	var levelwin = false;
