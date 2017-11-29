@@ -886,7 +886,7 @@ var game = function() {
 		newHeight = Q.height / h;
 		
 		if(greater){
-			if(newWidth > newHeight) return newHeight;
+			if(newWidth > newHeight) return newWidth;
 			else return newHeight;
 		}else{
 			if(newWidth < newHeight) return newWidth;
